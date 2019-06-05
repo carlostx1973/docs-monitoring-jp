@@ -1,0 +1,46 @@
+= カスタムダッシュボードのテキストパネルの設定
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring のカスタムダッシュボードにテキストパネルを追加できます。テキストパネルでは、ダッシュボードに関する情報を提供できます。テキストパネルは、ダッシュボードの行に追加できます。
+
+|===
+
+a|
+
+次のモードでテキストを記述できます。
+
+* HTML: HTML の例については、xref:dashboard-config-ref.adoc#samples_html[「HTML サポート」]を参照してください。
+
+* Markdown (マークダウン): マークダウンの例については、xref:dashboard-config-ref.adoc#samples_markdown[「マークダウン構文のサポート」]を参照してください。 a|
+
+image::text-config-html.png[例: カスタムダッシュボードのテキストパネル]
+|===
+
+== マークダウンの例
+
+次のマークダウンの例が示すように、入力しながら UI にテキストがどう表示されるかを確認できます。
+
+.マークダウンの例
+image::text-config.png[マークダウンの例]
+
+設定を完了したら、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。
+
+== HTML の例
+
+次の HTML の例では、xref:dashboard-custom-config.adoc#text_example[「テキストの例」]で表示する見出しを作成します。
+
+image::dashboard-text-config-html.png[HTML の例]
+
+////
+THIS IS NOT SUPPOSED TO BE IN THE UI, PER PABLO:
+Text panels also support a templating language and provide auto-complete features. For example, when you start typing, you can see a list of matching template options from which you can select and edit, such as these:
+
+----
+{% codeblock %}
+code_snippet
+{% endcodeblock %}
+{% img class URL width height title_text alt_text %}
+----
+////

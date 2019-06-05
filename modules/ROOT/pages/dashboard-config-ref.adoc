@@ -1,0 +1,624 @@
+= ダッシュボード設定リファレンス
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring では、設定で多くの事前定義値および識別子を使用できます。
+
+[[date_time_fields]]
+== 日時項目値
+多くの項目が次のような日時期間値を受け入れます。
+
+[%header,cols="1,5"]
+|===
+2+| 日時項目
+| `y`	| 年。例: `1y` (1 年)。
+| `M` | 月。例: `1M` (1 か月)。
+| `w` | 週。例: `1w` (1 週間)。
+| `d` | 日。例: `1d` (1 日)。
+| `h` | 時。例: `1h` (1 時間)。
+| `m` | 分。例: `1m` (1 分)。
+| `s` | 秒。例: `1s` (1 秒)。
+| `ms` | ミリ秒。例: `1ms` (1 ミリ秒)。
+|===
+
+[[metrics]]
+== グラフで使用できるメトリクス
+
+カスタムダッシュボードグラフの設定時に、多くの<<metrics_basic,基本>>および<<metrics_advanced,高度な>>メトリクスを使用できます。
+
+[[metrics_basic]]
+=== アプリケーションの基本モードメトリクス
+
+次のメトリクスは、アプリケーションで基本モードを使用するときに使用できます。
+
+[%header,cols="3,1,1"]
+|===
+| 基本メトリクス | 単位 | ランタイムバージョンサポート
+| Inbound - Average Request Count by Endpoint (インバウンド - エンドポイント別平均要求数) | `short` | 3.x-AM、3.9.x
+| Inbound - Average Request Count by Flow (インバウンド - フロー別平均要求数) | `short` | 3.x-AM、3.9.x
+| Inbound - Average Response Count by Endpoint (インバウンド - エンドポイント別平均応答数) | `short` | 3.x-AM、3.9.x
+| Inbound - Average Response Count by Flow (インバウンド - フロー別平均応答数) | `short` | 3.x-AM、3.9.x
+| Inbound - Failure Average Request Count by Endpoint (インバウンド - エンドポイント別失敗平均要求数)  | `short` | 3.x-AM、3.9.x
+| Inbound - Failure Average Request Count by Flow (インバウンド - フロー別失敗平均要求数) | `short` | 3.x-AM、3.9.x
+| Inbound - Failure Average Response Time by Endpoint (インバウンド - エンドポイント別失敗平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Inbound - Failure Average Response Time by Flow (インバウンド - フロー別失敗平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Inbound - Success Average Request Count by Endpoint (インバウンド - エンドポイント別成功平均要求数)  | `short` | 3.x-AM、3.9.x
+| Inbound - Success Average Request Count by Flow (インバウンド - フロー別成功平均要求数) | `short` | 3.x-AM、3.9.x
+| Inbound - Success Average Response Time by Endpoint (インバウンド - エンドポイント別成功平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Inbound - Success Average Response Time by Flow (インバウンド - フロー別成功平均応答時間) | `ms` | 3.x-AM、3.9.x
+| JVM - CPU % Utilization (JVM - CPU 使用率) | `percent` | 3.x-AM、3.9.x
+| JVM - CPU Load Average (JVM - CPU 負荷平均) | `percent` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Classes Loaded (JVM - クラスロード済み) | `short` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Classes Loaded Total (JVM - クラスロード済み合計) | `short` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Classes Unloaded (JVM - クラスアンロード済み) | `short` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Code Cache Committed (JVM - コードキャッシュコミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Code Cache Init (JVM - コードキャッシュ初期) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Code Cache Max (JVM - コードキャッシュ最大) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Code Cache Used (JVM - コードキャッシュ使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Compressed Class Space Committed (JVM - 圧縮クラス領域コミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Compressed Class Space Total (JVM - 圧縮クラス領域合計) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Compressed Class Space Used (JVM - 圧縮クラス領域使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Garbage Collection Count (JVM - ガーベージコレクション数) | `short` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Garbage Collection Time (JVM - ガーベージコレクション時間) | `ms` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Heap Committed (JVM - ヒープコミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Heap Used (JVM - ヒープ使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - JVM Uptime (JVM - JVM アップタイム) | `ms` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Memory Utilization (JVM - メモリ使用量) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Metaspace Committed (JVM - メタ領域コミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Metaspace Init (JVM - メタ領域初期) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Metaspace Max (JVM - メタ領域最大) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Metaspace Used (JVM - メタ領域使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Eden Committed (JVM - Par Eden コミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Eden Init (JVM - Par Eden 初期) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Eden Max (JVM - Par Eden 最大) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Eden Used (JVM - Par Eden 使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par New Collection Count (JVM - Par New 回収数) | `short` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par New Collection Time (JVM - Par New 回収時間) | `ms` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Survivor Committed (JVM - Par Survivor コミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Survivor Init (JVM - Par Survivor 初期) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Survivor Max (JVM - Par Survivor 最大) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Par Survivor Used (JVM - Par Survivor 使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Tenured Gen Committed (JVM - Tenured 世代コミット済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Tenured Gen Init (JVM - Tenured 世代初期) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Tenured Gen Max (JVM - Tenured 世代最大) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Tenured Gen Used (JVM - Tenured 世代使用済み) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Thread count - Server (JVM - スレッド数 - サーバ) | `short` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Total System Memory (JVM - 総システムメモリ) | `bytes` | 3.x-AM、3.9.x、4.x-AM
+| JVM - Total System Processors (JVM - 総システムプロセッサ) | `short` | 3.x-AM、3.9.x、4.x-AM
+| Outbound - Average Request Count by Endpoint (アウトバウンド - エンドポイント別平均要求数) | `short` | 3.x-AM、3.9.x
+| Outbound - Average Request Count by Flow (アウトバウンド - フロー別平均要求数) | `short` | 3.x-AM、3.9.x
+| Outbound - Average Response Time by Endpoint (アウトバウンド - エンドポイント別平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Outbound - Average Response Time by Flow (アウトバウンド - フロー別平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Outbound - Failure Average Request Count by Endpoint (アウトバウンド - エンドポイント別失敗平均要求数) | `short` | 3.x-AM、3.9.x
+| Outbound - Failure Average Request Count by Flow (アウトバウンド - フロー別失敗平均要求数) | `short` | 3.x-AM、3.9.x
+| Outbound - Failure Average Response Time by Endpoint (アウトバウンド - エンドポイント別失敗平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Outbound - Failure Average Response Time by Flow (アウトバウンド - フロー別失敗平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Outbound - Success Average Request Count by Endpoint (アウトバウンド - エンドポイント別成功平均要求数) | `short` | 3.x-AM、3.9.x
+| Outbound - Success Average Request Count by Flow (アウトバウンド - フロー別成功平均要求数) | `short` | 3.x-AM、3.9.x
+| Outbound - Success Average Response Time by Endpoint (アウトバウンド - エンドポイント別成功平均応答時間) | `ms` | 3.x-AM、3.9.x
+| Outbound - Success Average Response Time by Flow (アウトバウンド - フロー別成功平均応答時間) | `ms` | 3.x-AM、3.9.x
+|===
+
+=== API の基本モードメトリクス
+
+次のメトリクスは、API で基本モードを使用するときに使用できます。
+
+[%header,cols="3,1,1"]
+|===
+| 基本メトリクス | 単位 | ランタイムバージョンサポート
+| Requests by HTTP Policy Violation (HTTP ポリシー違反別要求数) | `short` | 3.x-AM、3.9.x、4.x-AM
+| Requests by HTTP Response Code (HTTP 応答コード別要求数) | `short` | 3.x-AM、3.9.x、4.x-AM
+| Requests by Method (メソッド別要求数) | `short` | 3.x-AM、3.9.x、4.x-AM
+| Requests by Instance (インスタンス別要求数) | `short` | 3.x-AM、3.9.x、4.x-AM
+|===
+
+[[metrics_advanced]]
+=== 高度なモード
+
+次のメトリクスは、API で高度なモードを使用するときに使用できます。
+
+.高度なメトリクス
+[%header,cols="1,2,2"]
+|===
+| Metric (メトリクス)
+| キー (From 句)
+| 使用可能な項目値 (Select 句)
+
+| Application Inbound Metrics (アプリケーションインバウンドメトリクス) | `app_inbound_metric` a|
+
+* `avg_request_count`
+* `avg_response_count`
+| Application Outbound Metrics (アプリケーションアウトバウンドメトリクス) | `app_outbound_metric` a|
+
+* `avg_request_count`
+* `avg_response_count`
+|  JVM ClassLoader (JVM クラスローダー) | `jvm.classloading` a|
+
+* `classes_loaded`
+* `classes_loaded_total`
+* `classes_unloaded`
+| JVM CPU | `jvm.cpu.operatingsystem` a|
+
+* `available_processors`
+* `cpu`
+* `load_average`
+* `total_physical_memory_size`
+| JVM Garbage Collection (JVM ガーベージコレクション) | `jvm.garbagecollector.marksweepcompact` a|
+
+* `gc_marksweep_collection_count`
+* `gc_marksweep_collection_time`
+| JVM Garbage Collection (JVM ガーベージコレクション) | `jvm.garbagecollector.parnew` a|
+
+* `gc_par_new_collection_count`
+* `gc_par_new_collection_time`
+* `gc_parnew_collection_count`
+* `gc_parnew_collection_time`
+|  JVM Memory (JVM メモリ) | `jvm.memory` a|
+
+* `heap_committed`
+* `heap_total`
+* `heap_used`
+|  JVM Memory "Code Cache" (JVM メモリ "コードキャッシュ") | `jvm.memory.code_cache` a|
+
+* `committed_memory`
+* `init_memory`
+* `max_memory`
+* `used_memory`
+|  JVM Memory Compressed (JVM メモリ圧縮) | `jvm.memory.compressed_class_space` a|
+
+* `committed_memory`
+* `init_memory`
+* `max_memory`
+* `used_memory`
+| JVM Memory Pool "Tenured Generation" (JVM メモリプール "Tenured 世代") | `jvm.memory.metaspace` a|
+
+* `committed_memory`
+* `init_memory`
+* `max_memory`
+* `used_memory`
+| JVM Memory "Eden Space" (JVM メモリ "Eden 領域") | `jvm.memory.par_eden_space` a|
+
+* `par_eden_committed`
+* `par_eden_total`
+* `par_eden_used`
+| JVM Memory "Survivor Space" (JVM メモリ "Survivor 領域") | `jvm.memory.par_survivor_space` a|
+
+* `par_survivor_committed`
+* `par_survivor_total`
+* `par_survivor_used`
+| JVM Memory "Tenured Generation" (JVM メモリ "Tenured 世代") | `jvm.memory.tenured_gen` a|
+
+* `committed_memory`
+* `init_memory`
+* `max_memory`
+* `used_memory`
+| JVM Runtime (JVM ランタイム) | `jvm.runtime` a|
+
+* `jvm_uptime`
+| JVM Threads (JVM スレッド) | `jvm.threading` a|
+
+* `thread_count`
+| HTTP Summary (HTTP サマリ) +
+*注意:*
+このメトリクスは API でのみ使用できます。 | `http_summary_metric` a|
+
+* `request_count`
+* `request_size_average`
+* `request_size_max`
+* `request_size_min`
+* `request_size_sum`
+* `response_size_average`
+* `response_size_max`
+* `response_size_min`
+* `response_size_sum`
+* `response_time_average`
+* `response_time_max`
+* `response_time_min`
+* `response_time_sum`
+|===
+
+////
+Not in UI anymore:
+|  JVM Memory Pool “Code Cache” | `jvm.memory.memorypool.code_cache` a|
+
+* `code_cached_committed`
+* `code_cached_total`
+* `code_cached_used`
+|  JVM Memory Pool “Code Cache” | `jvm.memory.memorypool.compressed_class_space` a|
+
+* `compressed_class_space_committed`
+* `compressed_class_space_total`
+* `compressed_class_space_used`
+|  JVM Memory Pool “Code Cache” | `jvm.memory.memorypool.metaspace` a|
+
+* `metaspace_committed`
+* `metaspace_total`
+* `metaspace_used`
+|  JVM Memory Pool “Eden Space” | `jvm.memory.memorypool.par_eden_space` a|
+
+* `par_eden_committed`
+* `par_eden_total`
+* `par_eden_used`
+|  JVM Memory Pool “Survivor Space” | `jvm.memory.memorypool.par_survivor_space` a|
+
+* `survivor_space_committed`
+* `survivor_space_total`
+* `survivor_space_used`
+| JVM Memory Pool “Tenured Generation” | `jvm.memory.memorypool.tenured_gen` a|
+
+* `tenured_gen_committed`
+* `tenured_gen_total`
+* `tenured_gen_used`
+////
+
+
+[[samples_markdown]]
+== マークダウン構文のサポート
+カスタムダッシュボードのテキストグラフ項目など、一部の Anypoint Monitoring 項目ではマークダウンを受け入れます。マークダウンは、あらゆる形式の記述にスタイルを設定するための軽量の構文です。
+
+=== マークダウンのタイトル
+
+.マークダウンのタイトルの例
+[source,text,linenums]
+----
+# TITLE 1
+## Title 2
+### Title 3
+----
+
+=== マークダウンの強調
+
+.マークダウンの強調の例
+[source,text,linenums]
+----
+*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+_You **can** combine them_
+----
+
+=== マークダウンのリスト
+
+順序なしリストと順序付きリストを記述できます。
+
+.マークダウン: 順序なしリスト
+[source,text,linenums]
+----
+Unordered
+* Item 1
+* Item 2 is **bold**
+  * Item 2a
+  * Item 2b
+
+Alternatively:
+- Dashes work just as well
+- For sub points, put two spaces before the dash or asterisk:
+  - Like this
+  - And this
+----
+
+.マークダウン: 順序付きリスト
+[source,text,linenums]
+----
+1. Item 1
+1. Item 2
+1. Item 3
+   1. Item 3a
+   1. Item 3b
+----
+
+`1.` エントリは、正しい順序番号に解決されます。
+
+=== マークダウンの画像
+
+画像を次のように挿入できます。
+
+.マークダウン: 画像の構文
+[source,text,linenums]
+----
+![MyCompany's Logo](https://www.mycompany.com/content/logo/logo.png)
+----
+
+=== マークダウンのリンク
+
+リンクを次のように追加できます。
+
+.マークダウン: リンクの構文
+[source,text,linenums]
+----
+[MyCompany's](https://www.mycompany.com/us/en-us.html)
+----
+
+URL は自動的にリンクに変換されます。
+
+.マークダウン: リンクへの変換の例
+[source,text,linenums]
+----
+http://www.github.com/
+----
+
+=== マークダウンのインラインコード
+
+インラインコードはバッククォートで囲みます。
+
+```
+マークダウンの `inline_code` の例です。
+```
+
+=== マークダウンのコード
+
+.マークダウン: コードの構文
+[source,text,linenums]
+----
+```
+javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+----
+
+=== マークダウンの ToDo リスト
+
+.マークダウン: ToDo リストの構文
+[source,text,linenums]
+----
+- [x] #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+----
+
+=== マークダウンのテーブル
+語句のリストを作成し、最初の行をハイフン (`-`) で分け、各列をパイプ (`|`) で区切ることでテーブルを作成できます。
+
+.マークダウン: テーブルの構文
+[source,text,linenums]
+----
+| Col 1 | Col 2 | Col 3 | Col 4 |
+|-------|-------|-------|-------|
+|       |       |       |       |
+|       |       |       |       |
+|       |       |       |       |
+|       |       |       |       |
+|       |       |       |       |
+|       |       |       |       |
+|       |       |       |       |
+----
+
+=== マークダウンの取り消し線
+
+2 つのチルダで囲まれた語 (`&#126;&#126;this&#126;&#126;` など) は、取り消し線付きで表示されます。
+
+=== マークダウンのブロック引用
+
+`>` を使用してブロック引用を開始します。
+
+.マークダウン: ブロック引用の構文
+[source,text,linenums]
+----
+> And so, my fellow Americans, ask not what
+> your country can do for you -- ask what
+> you can do for your country.
+
+> You can also create a very long line that should be quoted properly in the UI when it wraps
+----
+
+[[samples_html]]
+== HTML サポート
+カスタムダッシュボードのテキストグラフ項目など、一部の Anypoint Monitoring 項目では HTML 要素 (タグ) を受け入れます。
+
+[[html_titles]]
+=== HTML のタイトル
+
+.タイトル
+[source,html,linenums]
+----
+<h1>Title 1</h1>
+<h2>Title 2</h2>
+<h3>Title 3</h3>
+----
+
+[[html_emphasis]]
+=== HTML の強調
+
+.HTML の強調の例
+[source,html,linenums]
+----
+<i>This text will be italic</i><br>
+<em>This will also be italic</em><br>
+
+<b>This text will be bold</b><br>
+<strong>This will also be bold</strong><br>
+<br>
+<em>You <b>can</b> combine them</em><br>
+----
+
+[[html_lists]]
+=== HTML のリスト
+
+.順序なしリストの例
+[source,html,linenums]
+----
+<ul>
+<li>Item 1</li>
+<li>Item 2 is <b>bold</b></li>
+  <ul>
+      <li>Item 2a</li>
+      <li>Item 2b</li>
+  </ul>
+</ul>
+----
+
+.順序付きリストの例
+[source,html,linenums]
+----
+<ol type="1">
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+  <ol>
+    <li>Item 3a</li>
+    <li>Item 3b</li>
+   </ol>
+</ol>
+----
+
+[[html_images]]
+=== 画像
+
+.画像の例
+[source,html,linenums]
+----
+<img src="https://www.mycompany.com/content/dam/usa/logo/m_logo.png" alt="MyCompany's Logo" height="50" width="50">
+----
+
+[[html_links]]
+=== リンク
+
+.リンクの例
+[source,html,linenums]
+----
+<a href="https://www.mycompany.com/us/en-us.html">Visit mycompany.com!</a>
+----
+
+[[html_blockquotes]]
+=== ブロック引用
+
+.ブロック引用の例
+[source,html,linenums]
+----
+As John F. Kennedy said:
+
+<blockquote>
+  And so, my fellow Americans, ask not what your
+  country can do for you -- ask what you can do
+  for your country.
+</blockquote>
+----
+
+[[html_code]]
+=== コードと事前書式設定テキスト
+
+* コード: `<code>A piece of computer code</code>`
+* 事前書式設定テキスト:
++
+.pre タグの例
+[source,html,linenums]
+----
+<pre>
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both      spaces and
+line breaks
+</pre>
+----
+
+[[html_tables]]
+=== テーブル
+
+.テーブルの例
+[source,html,linenums]
+----
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+----
+
+[[html_strikethough]]
+=== 取り消し線
+
+.取り消し線の例
+[source,html,linenums]
+----
+<p> You can use the <strike>strike tag</strike>.</p>
+
+<p>You can also use <del> (<del>del</del>) and <s> (<s>s</s>).</p>
+----
+
+[[html_style_attribute]]
+=== HTML スタイル属性
+
+.スタイル属性の例
+[source,html,linenums]
+----
+<h1 style="color:blue; text-align:center;">A heading</h1>
+
+<h2 style="font-family:verdana; color:red">A heading</h2>
+
+<p style="font-family:courier; color:green; font-size:300%;">A paragraph.</p>
+----
+
+[[html_style_tag]]
+=== 埋め込みスタイル
+HTML ページ全体を埋め込みスタイルで表示することができます。
+
+.スタイルタグの例
+[source,html,linenums]
+----
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+</body>
+</html>
+<hr/>
+<p>&copy; 2004 Foo Corporation</p>
+----
+
+著作権の `\&copy;` のような HTML エンティティを使用できます。

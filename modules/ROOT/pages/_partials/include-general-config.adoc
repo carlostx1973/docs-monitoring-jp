@@ -1,0 +1,152 @@
+= 基本および高度なデータクエリの [General (一般)] 設定
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+[[general_settings]]
+
+[General (一般)] 設定には、時系列データを設定するための<<mode_basic,基本>>および<<mode_advanced,高度な>>クエリ (またはモード) が含まれます。タイトルと短い説明は、両方の設定で共有されます。
+
+image::config-general-common.png[例: 基本設定]
+
+[%header,cols="1,4"]
+|===
+2+| 基本モードおよび高度なモード設定
+| Title (タイトル) | UI に表示するタイトル。デフォルトは「Panel Title」(パネルタイトル) です。
+| 説明 | UI でユーザが情報 (`i`) アイコンにカーソルを置いたときに表示する短い説明。
+|===
+
+////
+*TODO: VERIFY:* It can contain Markdown and links. If true, SHOW EXs WITH MARKDOWN AND LINKS
+////
+
+その他の設定は、設定モード (基本または高度) に固有です。
+
+[[mode_basic]]
+=== 基本モード
+
+*[General (一般)]* 設定タブでは、基本クエリが特定の環境のリソース (デプロイ済みアプリケーションまたは API) に関する 1 つのメトリクスを選択します。
+
+image::ap-monitoring-basic-settings.png[例: 基本設定]
+
+[%header,cols="1,4"]
+|===
+2+| 基本モードの設定
+| Panel Type (パネル種別) a|
+ドロップダウンメニューから、リソースについて表示するパネルの種別 (*[Application Panel (アプリケーションパネル)]* または *[API Panel (API パネル)]*) を選択します。
+
+| Metric (メトリクス) a|
+
+ドロップダウンメニューには、次のメトリクス種別が含まれます。
+
+* Inbound response metrics and averages (インバウンド応答メトリクスおよび平均)
+* JVM metrics (JVM メトリクス)
+* Outbound response metrics and averages (アウトバウンド応答メトリクスおよび平均)
+
+基本メトリクスのリストについては、xref:dashboard-config-ref.adoc#metrics[基本モードのメトリクス]を参照してください。
+
+| Environment (環境) | アプリケーションまたは API がデプロイされる環境。
+| リソース | デプロイ済みアプリケーションまたは API。
+|===
+
+////
+*TODO: NEED DESCRIPTIONS OF SOME OF THE ABOVE SETTINGS*
+////
+
+設定を完了したら、*[Save Changes (変更を保存)]* をクリックします。 
+
+設定を終了してダッシュボードに戻るには、*[X]* をクリックします。
+
+[[mode_advanced]]
+=== 高度なモード
+
+*[General (一般)]* 設定タブの高度な設定では、チャートに対して 1 つ以上の詳細に調整されたクエリがサポートされます。
+
+[IMPORTANT]
+基本設定に戻ると、高度な設定のクエリのいくつかは削除されます。
+
+image::config-general-advanced.png[例: 高度な設定]
+
+[%header,cols="1,4"]
+|===
+2+| アプリケーションの高度なモードの設定
+| From a|
+
+チャートに追加可能な JVM および Mule アプリケーションのプロパティ (`jvm.memory` や `app_inbound_metric` など) をリストします。
+
+この項目では、文字を入力すると一致候補が表示されます。たとえば、「`jvm.c`」と入力すると、それらの文字が含まれるすべての値 (`jvm.classloading` や `jvm.cpu.operatingsystem` など) のリストが表示されます。
+
+高度なメトリクスのリストについては、xref:dashboard-config-ref.adoc#metrics_advanced[高度なモードのメトリクス]を参照してください。
+| Where a|
+選択された *[From]* データソースを絞り込むための条件付きロジックをサポートします。
+
+* 1 つ以上の検索条件タグ (`app_id`、`env_id`、`org_id`、`worker_id` など) を選択できます。例: `Where env_id = Sandbox`。
+* `=`、`!=`、`<>`、`<`、`>` などの演算子を使用できます。
+* 式間に論理 `AND` または `OR` 演算子を使用して、複数の絞り込み式が含まれるクエリを作成することもできます。
+| Select a|
+[From] データ (`jvm.memory` など) から項目 (`heap_committed`、`heap_total`、`heap_used` など) を選択して操作 (`heap_total` の `mean` (平均) など) を適用する関数を作成します。1 つ以上の`field` (項目) 設定を追加できます。
+
+image::config-general-advanced-select.png[Select のオプション]
+
+//*TODO_VERIFY* Note that when you group by time, you need to use an aggregation function. In addition, some functions like derivatives also require an aggregation function.
+
+| Group By a|
+
+//*TODO_VERIFY*
+選択された期間 (`$__interval`、`1s` (1 秒)、`10m` (10 分)、`1h` (1 時間))、検索条件タグ (`tag(env_id)` など)、入力オプション (`none` (なし)、`null`、`0`、`previous` (前回)、`linear` (線形)) でデータをグループ化します。
+
+次の値と引数が有効です。
+
+* `time($__interval)`: 期間が自動設定されます。または、期間を指定できます (`1s` (1 秒)、`10s` (10 秒)、`1m` (1 分)、`5m` (5 分)、`10m` (10 分)、`15m` (15 分)、`1h` (1 時間) のいずれか)。
+* `fill()`: 有効値は `none` (なし)、`null`、`0`、`previous` (前回)、`linear` (線形)。
+* `LIMIT`: 数値 (N)。この N を使用して、結果をクエリで返された最初の N 件のデータポイント (系列とタイムスタンプ値の組み合わせ) に制限します。
+* `SLIMIT`: 数値 (N)。この N を使用して、クエリで返された最初の N 系列からすべてのデータポイント (系列とタイムスタンプ値の組み合わせ) を返します。
+* `ORDER BY time DESC`: 結果を新しい順に返します。
+| Alias By | リテラル文字列 (`my string` など) またはサポートされている変数 (`$tag_worker_id` や `$tag_env_id` など) を使用してメトリクスの表示ラベルを作成できます。
+|===
+
+[%header,cols="1,4"]
+|===
+2+| API の高度なモード設定
+| From a|
+
+`http_summary_metric` 
+
+高度なメトリクスのリストについては、xref:dashboard-config-ref.adoc#metrics_advanced[高度なモードのメトリクス]を参照してください。
+| Where a|
+選択された *[From]* データソースを絞り込むための条件付きロジックを指定します。
+
+1 つ以上の検索条件タグ (`api_id`、`org_id`、`api_version_id`、`method`、`status code` など) を選択できます。例: `Where status_code = 200`。
+
+|Select a|
+
+HTTP サマリから項目 (`request_size_average`、`response_time_max`、`response_time_sum` など) を選択し、操作 (`response_time_average` の `mean` (平均) など) を適用する関数を作成します。1 つ以上の`field` (項目) 設定を追加できます。
+|Group by a|
+
+選択された期間 (`$__interval`、`1s` (1 秒)、`10m` (10 分)、`1h` (1 時間))、検索条件タグ (`tag(api_id)` など)、入力オプション (`none` (なし)、`null`、`0`、`previous` (前回)、`linear` (線形)) でデータをグループ化します。
+|Alias by a|
+
+リテラル文字列 (`my string` など) またはサポートされている変数 (`$tag_api_id` など) を使用してメトリクスの表示ラベルを作成できます。別名は常に `$tag` で開始する必要があります。構文は `$tag_yourTagName` です。
+
+タグを別名として使用するには、そのタグがクエリで `group by` に使用されている必要があります。 
+|===
+
+設定を完了したら、*[Save Changes (変更を保存)]* をクリックします。 
+
+設定を終了してダッシュボードに戻るには、*[X]* をクリックします。
+
+////
+TODO /QUESTION: CAN YOU DO Regex matching ON WHERE?
+TODO / SELECT:  row you can specify what fields and functions you want to use. If you have a group by time you need an aggregation function. Some functions like derivative require an aggregation function. The editor tries simplify and unify this part of the query. For example:
+*TODO: DESCRIPTIONS NEEDED*: Group By.
+*TODO: VALID VALUES NEEDED, explain supported variables, too. MK's notes say "Series Name"*
+*TODO: NEED DESCRIPTIONS OF MANY OF THESE SETTINGS*
+
+TODO: SEE IF ANY OF THIS COULD GO ABOVE:
+.Advanced Query Options
+|===
+| From | Identifies the source of the data to measure in your graph. For example, you might select Mule app (`app`) or Java virtual machine (`jvm`) data, such as `app_inbound_metric`, `app_outbound_metric`, `jvm.classloading`, `jvm.cpu.operatingsystem`, `jvm.garbagecollector.parnew`, `jvm.memory`, `jvm.runtime`, `jvm.threading`, or one of the many other sources.
+| Where | For filtering the source based on a given property (such as the organization ID (`org_id`) or environment ID (`env_id`), or both) to which the metric applies. Operators for the properties are `=`, `!=`, `<>` (less than or greater than, but not equal to), `<`, `>` (for example, `env_id = Sandbox`). Available properties also include `app_id`, `endpoint`, `endpoint_type`, `flow_id`, `org_id`, `response_type`, and `worker_id`.
+| Select | For manipulating data in one or more fields, such as `avg_request_count` , `avg_response_time`.
+|===
+////

@@ -1,0 +1,56 @@
+= コネクタの監視
+
+実行中の操作、操作にかかっている時間、操作の成否など、アプリケーションのサポート対象コネクタに関するパフォーマンスメトリクスを表示できます。
+
+[NOTE]
+この機能には、 https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプション] と Unified Agent が必要です。
+
+次のようなコネクタがサポートされています。
+
+* Salesforce
+* データベース
+* HTTP
+* Web サービス
+* Other (その他) +
+コネクタ種別「Other」(その他) は、Salesforce、データベース、HTTP 以外のすべてのコネクタです。
+
+
+== コネクタ監視へのアクセス
+
+. Anypoint Platform にサインインし、*[Anypoint Monitoring]* に移動します。
+. 環境とリソース名を選択し、*[View (表示)]* をクリックします。 +
+パフォーマンス情報を表示するには、選択したリソースにサポート対象のコネクタがデータと一緒に含まれている必要があります。
+. *[Built-in dashboards (組み込みダッシュボード)]* ページで、*[Connectors (コネクタ)]* をクリックします。 +
+*[Connectors (コネクタ)]* タブが表示されない場合は、Anypoint Platform の Titanium サブスクリプションがあることと、選択したアプリケーションがサーバ、サーバグループ、またはクラスタにデプロイされたハイブリッドアプリケーションであることを確認してください。CloudHub にデプロイされたアプリケーションには *[Connectors (コネクタ)]* タブは表示されません。 +
+[Connectors (コネクタ)] ページには、次の表のコネクタのメトリクスが表示されます。
+
+[%header,cols="1,4"]
+|===
+| Connector (コネクタ) | チャート
+|*Salesforce* a|
+
+* Requests: Average number of Salesforce connector requests, grouped by automatic intervals (要求: Salesforce コネクタの平均要求数、自動期間でグループ化)
+* Response Time: Average response time of Salesforce connector requests, grouped by automatic intervals (応答時間: Salesforce コネクタの要求に対する平均応答時間、自動間隔でグループ化)
+* Failures: Average number of Salesforce connector requests failures, grouped by automatic intervals (失敗: Salesforce コネクタの平均要求失敗数、自動期間でグループ化)
+|*データベース* a|
+
+* Requests: Average number of Database connector requests, grouped by automatic intervals (要求: データベースコネクタの平均要求数、自動期間でグループ化)
+* Response Time: Average response time of Database connector requests, grouped by automatic intervals (応答時間: データベースコネクタの要求に対する平均応答時間、自動期間でグループ化)
+* Failures: Average number of Database connector requests failures, grouped by automatic intervals (失敗: データベースコネクタの平均要求失敗数、自動期間でグループ化)
+|*HTTP* a|
+
+* Requests: Average number of HTTP connector requests, grouped by automatic intervals (要求: HTTP コネクタの平均要求数、自動期間でグループ化)
+* Response Time: Average response time of HTTP connector requests, grouped by automatic intervals (応答時間: HTTP コネクタの要求に対する平均応答時間、自動期間でグループ化)
+* Failures: Average number of HTTP connector requests failures, grouped by automatic intervals (失敗: HTTP コネクタの平均要求失敗数、自動期間でグループ化)
+|*Web サービス* a|
+
+* Requests: Average number of Web Services connector requests, grouped by automatic intervals (要求: Web サービスコネクタの平均要求数、自動期間でグループ化)
+* Response Time: Average response time of Web Services connector requests, grouped by automatic intervals (応答時間: Web サービスコネクタの要求に対する平均応答時間、自動期間でグループ化)
+* Failures: Average number of Web Services connector requests failures, grouped by automatic intervals (失敗: Web サービスコネクタの平均要求失敗数、自動期間でグループ化)
+|*Other (その他)* a|
+
+* Requests: Average number of requests of connectors of type Other, grouped by automatic intervals (要求: その他種別のコネクタの平均要求数、自動期間でグループ化)
+* Response Time: Average response time of requests of connectors of type Other, grouped by automatic intervals (応答時間: その他種別のコネクタの要求に対する平均応答時間、自動期間でグループ化)
+* Failures: Average number of requests failures of connectors of type Other, grouped by automatic intervals(失敗: その他種別のコネクタの平均要求失敗数、自動期間でグループ化)
+
+image:monitoring-connector-dashboard.png[]

@@ -1,0 +1,156 @@
+= カスタムダッシュボードのテーブルの設定
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring で、カスタムダッシュボードのテーブルを設定できます。高度または基本メトリクスクエリや時間範囲のような、他のチャートと共通のプロパティを設定するだけでなく、次のこともできます。
+
+* 時系列データを表形式にレイアウトし、集計データを表示する。
+* 色分けしたしきい値を追加して、値が特定の範囲より上、範囲内、範囲より下のいずれであるかを示す。
+* 列内の値から指定された Web ページへのリンクを指定する。
+* ページネーションプロパティを設定する。
+
+//GENERAL SETTINGS shared by singlestat, graph, table
+//== General
+include::{partialsdir}/include-general-config.adoc[]
+
+// TIME RANGE SETTINGS shared by singlestat and table
+//==Time Range
+include::{partialsdir}/include-time-range-config.adoc[]
+
+== Options (オプション) (データおよびページネーション設定)
+
+[Options (オプション)] 設定タブで、カスタムダッシュボードのテープルのレイアウト、列、およびページネーションオプションを設定できます。
+
+=== データ設定 ([Options (オプション)] タブ)
+
+[%header,cols="1,4"]
+|===
+2+| 値の設定
+| Time Series to Rows (時系列 - 行) a|
+
+特定の期間における特定のメトリクスの値を含むテーブルを作成します。[Time Series to Columns (時系列 - 列)] と同様、最初の列である [Time (時刻)] はタイムスタンプ (`2018-04-25 06:37:40` など) です。ただし、後続の列は [Metric (メトリクス)] (`worker-0` など、特定のメトリクスをリスト) と [Value (値)] (その期間のメトリクスの値をリスト) です。例:
+
+image::table-series-to-rows.png[Time Series to Columns (時系列 - 列)]
+| Time Series to Columns (時系列 - 列) a|
+
+特定の期間における特定のメトリクスの値を表示するテーブルを作成します。[Time Series to Rows (時系列 - 行)] と同様、最初の列である [Time (時刻)] はタイムスタンプです。ただし、メトリクス (`worker-0` など) ごとに列があり、特定の期間のメトリクスの値がリストされます。例:
+
+image::table-series-to-columns.png[Time Series to Columns (時系列 - 列)]
+
+
+| Time Series to Aggregations (時系列 - 集約) a|
+
+時系列を、特定のメトリクスの合計、平均などを計算するテーブルに変換します。最初の列の [Metric (メトリクス)] は `worker-0` などのメトリクスで、後続の列は特定のメトリクスの Avg (平均)、Min (最小)、Max (最大)、Total (合計)、Current (現在)、Count (件数) の値の組み合わせです。例:
+
+image::table-aggregations.png[Time Series to Aggregations (時系列 - 集約)]
+
+この例では色分けされた<<thresholds,しきい値>>を使用しています ([Avg (平均)] および [Max (最大)] セルの色と [Min (最小)] の値の色を参照)。
+|===
+
+////
+TODO _REMOVED FOR CONNECT, TO RETURN LATER
+| Annotations | Displays annotations in a table if annotations are enabled for the dashboard. In this mode, queries you have in the metrics tab will be ignored. *TODO, VERIFY and how do you enable annotations?*
+| Table | *TODO, what does this do* Columns and their order are determined by the data query.
+| JSON Data | Mode to use for Elasticsearch or Elasticsearch Raw Document queries without a date histogram. *TODO: VERIFY mention Elasticsearch?*
+////
+
+[Time Series to Aggregations (時系列 - 集約)] を選択した場合、事前定義した列をテーブルに追加できます。
+
+[%header,cols="1,4"]
+|===
+2+| 集約用の列
+| Auto (自動) | 列とその順序はデータクエリによって決まります。[Time Series to Rows (時系列 - 行)]、[Time Series to Columns (時系列 - 列)]、[Annotations (アノテーション)]、または [Table (テーブル)] が選択されている場合にのみ指定できます。
+| Avg (平均) | 特定のメトリクスについて記録されたデータを平均します。
+| Min (最小) | 特定のメトリクスの最小記録値を提供します。
+| Max (最大) | 特定のメトリクスの最大記録値を提供します。
+| Total (合計) | テーブルに記録されたすべての値の合計を提供します。
+| Current (現在) | 特定のメトリクスの現在の値を表示します。
+| Count (数) | メトリクスに関して収集されたデータポイントの総数を提供します。
+|===
+
+////
+TODO _REMOVED FOR CONNECT. MIGHT COME BACK LATER.
+| A blank text box | Appears when JSON Data is selected. *TODO: need JSON example?*
+////
+
+=== ページング ([Options (オプション)] タブ)
+
+[Options (オプション)] 設定タブで、テーブルのページネーションプロパティを設定して、ページが長くなりすぎず、管理しやすくなるようにします。
+
+[%header,cols="1,4"]
+|===
+2+| ページングプロパティ
+| Rows per Page (ページあたりの行数) | 1 ページに許容されるテーブル行数。
+| Scroll (スクロール) | テーブルをスクロール可能にするためのチェックボックス。
+| Font Size (フォントサイズ) | デフォルトフォントサイズのパーセント (80% ～ 250%)。
+|===
+
+設定を完了したら、別の設定タブを開くか、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。
+
+== Column Styles (列スタイル) (オプション、データ型、しきい値、リンク)
+
+[Column Styles (列スタイル)] 設定タブで、テーブル列を作成し ([+Add (+追加)])、1 つ以上のルールを適用できます。ルールは、[Column Styles (列スタイル)] ペインの左側にリストされます。
+
+ルールを削除するには、ルールをクリックし、画面左下近くにある [Remove Rule (ルールを削除)] ボタンを見つけてクリックする必要があります。
+
+=== オプション ([Column Styles (列スタイル)] タブ)
+
+[%header, cols="1,4"]
+|===
+2+| オプション
+| Apply To Columns Named (指定した列に適用)  | ルールを適用する列を識別します。名前、またはテーブルの 1 つ以上の列の名前と一致する正規表現 (regex) を指定する必要があります。regex の場合、構文 `/my.*regex/` に従います。
+| Column Header (列ヘッダー) | 列のタイトルを指定します。たとえば、データを集計するテーブルに [`Avg` (平均)] 列を追加する場合、その列名を「`Average`」(平均) に変えることがあります。正規表現に `$1` などの文字列を使用できます。
+| Render Value As Link (値をリンクとして表示) | 列内の値を、<<settings_link,リンク>>設定で設定可能なリンクとして処理します。
+|===
+
+[[settings_link]]
+=== リンク ([Column Styles (列スタイル)] タブ)
+
+[Column Styles (列スタイル)] 設定タブで、値から指定された Web ページへのリンクを設定できます。
+
+リンク設定は、 _[Render Value As Link (値をリンクとして表示)]_  がオンの場合にのみ使用できます。
+
+[%header, cols="1,4"]
+|===
+2+| リンク
+| URL a|
+列の値をクリックすると開くことができる URL を指定します。
+| Tooltip (ツールチップ) a|
+
+リンクの説明を指定します。このテキストは、エンドユーザがリンクを含むセルにカーソルを置くと表示されます。URL で使用したものと同じ変数を使用します。
+| Open In New Tab (新しいタブで開く) | 値がクリックされると、Web コンテンツを新しいブラウザタブに表示します。
+|===
+
+[%header, cols="1,4"]
+|===
+2+| 型
+| 型 | 列内の値のデータ型。有効な値は、Number (数値)、String (文字列)、Date (日付)、Hidden (非表示) です。
+| 単位 | 値に使用する測定単位の表示ラベル (`bytes` (バイト) や `megabytes/second` (MB/秒) など)。値にこの表示ラベルを追加する前に、値のデータ型を把握することが重要です。多種多様な単位を使用できます。
+| Decimals (小数) | 小数で許容される精度のレベル。たとえば、`2` にすると、値 `10.12345` が `10.12` に制限されます。
+|===
+
+////
+DOES NOT SEEM TO BE TRUE FOR TABLE LINKS:
+(relative or absolute). You can use special variables to specify cell values:
+
+Valid values:
+
+* `$__cell` refers to current cell value.
+* `$__cell_n` refers to Nth column value in current row. Column indexes are started from `0`. For instance, ``$__cell_1` refers to second column's value.
+////
+
+[[thresholds]]
+=== しきい値 ([Column Styles (列スタイル)] タブ)
+
+[Column Styles (列スタイル)] 設定タブで、[Type (データ型)] が [Number (数値)] に設定されている場合、データのしきい値を設定できます。
+
+[%header, cols="1,4"]
+|===
+2+| Thresholds (しきい値)
+| Thresholds (しきい値) | カンマ区切り値 (`50000000,100000000` など)。2 つの値の間の値を警告値として扱うこともできます。最初の値未満の値を受け入れ可能とし、2 つ目の値より大きい値をエラーとして扱うこともできます。しきい値は、_指定された [Unit (単位)] がテーブルで MB や GB に変換される場合も含め_、データに使用する測定単位 (`byte` (バイト) など) に合わせる必要があります。
+| Color Mode (色モード) | 色分けをセル内の値、セル、行全体に適用するかどうか、または色分けを無効にするかどうかを示します。
+| Color (色) | 指定されたしきい値設定より小さい値 (左側の色ボックス)、間の値 (中央の色ボックス)、大きい値の色分けに使用する色。たとえば、緑の値で OK、黄色で警告、赤でエラーを表すことができます。色分けを反転させることもできます。
+|===
+
+設定を完了したら、別の設定タブを開くか、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。

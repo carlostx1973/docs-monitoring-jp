@@ -1,0 +1,130 @@
+= カスタムメトリクス
+
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Custom Metrics コネクタを使用すると、ハイブリッドアプリケーションから運用およびビジネスメトリクス値を Anypoint Monitoring に送信し、カスタムダッシュボードの高度なモードや、組み込みの​*カスタムメトリクス*​ダッシュボードを使用して、リアルタイムにメトリクスを視覚化できます。 
+
+Anypoint Custom Metrics コネクタでメトリクスを定義し、ダッシュボードに表示するメトリクスを選択します。定義したディメンションに沿ってメトリクスの絞り込みやグループ化ができ、複数のカスタムメトリクスや組み込みメトリクスを 1 つのダッシュボード視覚化に含めることができます。
+
+[NOTE] 
+====
+Anypoint Custom Metrics コネクタで設定したメトリクスを Anypoint Monitoring に表示するには、Titanium サブスクリプションが必要です。 +
+この機能は現在、ハイブリッドアプリケーションでのみサポートされます。
+====
+
+== 前提条件
+
+* Mule Runtime Engine 4.1.x、または 3.8.7 以降
+* xref:am-installing.adoc[Anypoint Monitoring エージェントのインストール]
+
+== Design Center を使用してカスタムメトリクス値を設定する
+
+Custom Metrics コネクタは、Mule 3 と Mule 4 の両方の Anypoint Exchange から入手できます。
+
+. *Design Center* で、新しい Mule アプリケーションプロジェクトを作成します。 +
+プロジェクトが Design Center で開きます。 
+. フローのトリガを選択し、*[Next (次へ)]* をクリックします。
+. *[Target (対象)]* で、*[Anypoint Custom Metrics Connector (Anypoint Custom Metrics コネクタ)]* を選択し、*[Done (完了)]* をクリックします。 
++
+image::custom-metric-dc-select-target.png[]
++
+コネクタには *[Send Custom Metric (カスタムメトリクスを送信)]* という操作が 1 つあります。 
+. 設計キャンバスで、*[Anypoint Custom Metrics Connector (Anypoint Custom Metrics コネクタ)]* カードを開いてメトリクスを追加します。
+. *[Metric Name (メトリクス名)]* に、わかりやすい値を入力します。 
+. *[Dimensions (ディメンション)]* の横で、*[Add (追加)]* をクリックしてメトリクスのディメンションの名前と値を入力します。  
++
+image::custom-metric-dc-add-dimension.png[]
+.. *[Add Item (項目を追加)]* ダイアログボックスで、ディメンションの *[Dimension Name (ディメンション名)]* と *[Value (値)]* を入力します。
+.. *[Collapsible (折りたたみ可能)]* オプションはデフォルトの *[True]* のままにします。
+.. *[OK]* をクリックします。 
++
+image::custom-metric-dc-add-item.png[]
++
+この手順を繰り返して複数のキー値を追加できます。
+.  *[Facts (ファクト)]* の横で、*[Add (追加)]* をクリックしてメトリクスのファクトを追加します。測定の値は常に数値です。
+.. *[Add Item (項目を追加)]* ダイアログボックスで、ファクトの *[Fact Name (ファクト名)]* と数値の *[Value (値)]* を入力します。 +
+[NOTE]
+ファクトの場合、値は常に数値にする必要があります。これは設計時には検証されませんが、数値以外を入力するとデプロイ後にランタイム例外が発生します。
++
+image::custom-metrics-add-fact.png[]
++
+.. *[OK]* をクリックします。 +
+この手順を繰り返して複数のキー値を追加できます。
+. メトリクスに無効な値が入力されたらフローを中止する場合は、*[Throw Runtime Exception on Validation Failure (検証失敗時にランタイム例外をスロー)]* オプションを選択します。このオプションをオフのままにすると、エラーはログに記録されますが、フローは中止されません。
+
+
+== Anypoint Studio を使用してカスタムメトリクスを設定する
+
+. Anypoint Exchange で Anypoint Custom Metrics コネクタを検索します。 +
+. *[Send Custom Metric (カスタムメトリクスを送信)]* 操作をキャンバスにドラッグします。 
+. *[Send Custom Metric (カスタムメトリクスを送信)]* 操作をアプリケーションフローに追加します。 +
+次の画像は、Anypoint Studio でのカスタムメトリクスのフロー例を示しています。 
++
+image::custom-metric-example-flow.png[]
+. *[Send Custom Metric (カスタムメトリクスを送信)]* 操作をクリックして操作の値を追加します。 
+. メトリクスのディメンションを次のように追加します。
+.. *[Metric Name (メトリクス名)]* に、わかりやすい値 (「sales」(営業) など)を入力します。 
+.. *[Enter contextual information (コンテキスト情報を入力)]* で、*[Edit inline (インライン編集)]* を選択してディメンションの名前と値を入力します。 
+.. 左にある緑のプラス記号をクリックして値を入力します。
+.. *[Dimension (ディメンション)]* ダイアログボックスで、ディメンションの *[Name (名前)]* と *[Value (値)]* を入力します。
+.. *[Collapsible (折りたたみ可能)]* オプションはデフォルトの *[True]* のままにします。
+.. *[Finish (完了)]* をクリックします。 +
+この手順を繰り返して複数のキー値を追加できます。
+. メトリクスのファクトを入力します。測定の値は数値です。
+.. *[Enter measurements (測定を入力)]* で、*[Edit inline (インライン編集)]* を選択してメトリクスの名前と値を入力します。
+.. *[Fact (ファクト)]* ダイアログボックスで、ファクトの *[Name (名前)]* と数値の *[Value (値)]* を入力します。 +
+[NOTE]
+ファクトの場合、値は常に数値にする必要があります。これは設計時には検証されませんが、数値以外を入力するとデプロイ後にランタイム例外が発生します。
+.. *[Collapsible (折りたたみ可能)]* オプションはデフォルトの *[True]* のままにします。
+.. *[Finish (完了)]* をクリックします。 +
+この手順を繰り返して複数のキー値を追加できます。 +
+次の画像は、T シャツの売上を追跡するカスタムメトリクスの値の例を示しています。
++
+image::custom-metrics-connector-config.png[]
++
+. メトリクスに無効な値が入力されたらフローを中止する場合は、*[Throw runtime exception on validation failure (検証失敗時にランタイム例外をスロー)]* オプションを選択します。このオプションをオフのままにすると、エラーはログに記録されますが、フローは中止されません。
+
+== アプリケーションをデプロイする
+
+. アプリケーションをサポートされているスタンドアロンの Mule Runtime Engine にデプロイします。
+. Anypoint Monitoring で、カスタムメトリクスのxref:dashboard-custom-config.adoc[新しいカスタムダッシュボードを追加]します。 +
+次の画像は、T シャツの売上を表示するグラフの設定例を示しています。
++
+image::custom-metric-custom-dashboard-config.png[]
++
+[NOTE]
+カスタムメトリクスのログが記録されて初めて、事前入力されたメトリクス選択ドロップダウンリストにカスタムメトリクスが表示されます。 
++
+image::custom-metric-custom-dashboard-graph.png[]
+
+== カスタムメトリクスダッシュボードを使用する
+
+アプリケーションフローに xref:connectors::metrics/custom-metrics-connector.adoc[Custom Metrics コネクタ]を設定し、アプリケーションをサーバまたはサーバクラスタにデプロイするまで、アプリケーションのカスタムメトリクスは収集されません。 
+
+. Anypoint Monitoring で、メトリクスを表示するアプリケーションを選択し、*[View (表示)]* をクリックします。 
+. *[Custom metrics (カスタムメトリクス)]* タブをクリックします。 +
+[NOTE]
+*[Custom metrics (カスタムメトリクス)]* タブを表示するには、ハイブリッドアプリケーション (オンプレミスサーバにデプロイされ、かつクラウドで管理されているアプリケーション) を選択する必要があります。 +
+Custom Metrics コネクタが指定された時間範囲内に 1 つ以上のメトリクスを収集した場合、定義されたメトリクスにつき 1 つのチャートが表示されます。 
++
+image::custom-metrics-dashboard.png[]
++
+. *[Select a measurement for this chart (このチャートの測定を選択)]* をクリックしてチャートの測定を表示します。
+. チャート下部にあるドロップダウンリストを使用して、次の検索条件でデータを絞り込みます。 +
+* *Aggregation (集約)* - 次のような集約を選択できます。
+** *None (なし)* (デフォルト) - データを集約しません。  
+** *count (カウント)* - 測定に対して収集された項目の総数を表示します。
+** *distinct (個別)* - 特定の測定のユニーク値を返します。
+** *integral (積分)* - 後続値の曲線下面積を返します。
+** *mean (平均)* - 特定の期間の指定された測定の算術平均を返します。
+** *median (中央値)* - 収集されたメトリクスの中央値を表示します。
+** *mode (最頻値)* - 定義された測定について収集されたメトリクスの最頻値を表示します。 
+** *sum (合計)* - 定義された測定のすべての値の合計を表示します。 
+* *Measurement (測定)* - このリストの選択肢は、Custom Metrics コネクタに定義する測定値によって決まります。 
+* *Group by (グループ化基準)* - このリストの選択肢は、Custom Metrics コネクタに定義する値によって決まります。
+
+== 関連情報 
+
+xref:connectors::metrics/custom-metrics-connector-reference.adoc[Anypoint Custom Metrics コネクタリファレンス]

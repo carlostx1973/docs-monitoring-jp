@@ -1,0 +1,90 @@
+= Mule アプリケーションの Anypoint Monitoring の設定 (CloudHub)
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+CloudHub で管理されている Mule アプリケーションの監視を開始するには、それらのアプリケーションをサポート対象バージョンの Mule Runtime Engine にデプロイし、Mule アプリケーションにランタイムのバージョンを設定する必要があります。 
+
+== CloudHub にデプロイされている Mule のサポート対象バージョン
+
+Anypoint Monitoring イメージ (たとえば 3.8.7-AM) は毎月 1 回最新のパッチ更新を受信するのに対し、非 AM イメージはパッチ更新をリリースされ次第受信します。本番環境で Mule Runtime Engine のパッチが必要な場合、非 AM のランタイムに切り替える必要があります。
+
+|===
+| プラットフォーム | Mule バージョン | 機能
+
+| Anypoint Platform (CloudHub)
+| 4.1.5
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 4.1.4
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 4.1.3
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 4.1.2
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 4.1.1
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 3.9.2
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 3.9.1
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 3.9.0
+| メトリクスとログ
+
+| Anypoint Platform (CloudHub)
+| 3.8.7-AM
+| ログのみ
+|===
+
+メトリクスは、xref:dashboards.adoc[ダッシュボード]内のグラフや他のチャートで使用されます。
+
+[[update_app]]
+== ランタイムバージョンの設定
+
+Mule アプリケーションのランタイムバージョンを設定または変更する手順は、次のとおりです。
+
+* 新規および既存の Mule アプリケーションの場合:
++
+. そのアプリケーションの Runtime Manager で *[Settings (設定)]* に移動します。
+. *[Runtime Version (ランタイムバージョン)]* セレクタから新しいランタイムを選択します。
++
+ドロップダウンメニューにサポート対象のランタイムバージョンが表示されない場合は、
+*[Show Old Patch Releases (以前のパッチリリースを表示)]* までスクロールダウンし、アプリケーションのランタイムをクリックして選択します。
++
+* Anypoint CLI デプロイメントの場合:
++
+Anypoint CLI を使用して Mule アプリケーションをデプロイしている場合 (ビルドパイプラインを使用する場合など)、
+適切な値を指定した `--runtime` パラメータを含める必要があります。
+たとえば、次のようにします。
++
+[src,command,linenums]
+----
+anypoint-cli --username="..." --password="..."
+ --organization="Mythical, Inc"
+ --environment="Production" runtime-mgr cloudhub-application deploy
+ --runtime="3.9.0-AM" helloworld ~/demoproj2.zip
+----
++
+* Maven デプロイメントの場合:
++
+デプロイメントに Maven を使用している場合、`pom.xml` ファイル内の `<muleVersion>` タグを
+変更して `-AM` を付加する必要があります。たとえば、`<muleVersion>3.9.0</muleVersion>` を `<muleVersion>3.9.0-AM</muleVersion>` に変更します。
+
+== 関連情報
+
+* xref:monitoring-settings-page.adoc[Anypoint Monitoring 設定]
+* xref:am-installing.adoc[Anypoint Monitoring のオンプレミスインストール]
+* xref:api-functional-monitoring::afm-create-monitor.adoc[Create a Monitor (監視の作成)]

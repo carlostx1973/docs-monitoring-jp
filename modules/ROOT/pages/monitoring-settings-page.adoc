@@ -1,0 +1,25 @@
+= Anypoint Monitoring 設定
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+*[Settings (設定)]* ページでは次のことができます。
+
+* Anypoint Monitoring をオンプレミスサーバにインストールしてそのサーバ上で実行されている Mule アプリケーションを監視する手順を見つける。 
+* Mule 3.9.2 で実行されているアプリケーションの監視を有効化 (または無効化) する。
+
+== [Settings (設定)] ページにアクセスする
+
+*[Settings (設定)]* ページにアクセスするには、*Anypoint Monitoring ユーザ*権限が必要です。xref:access-management::users#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」](ユーザへの権限とロールの付与) を参照してください。
+
+. Anypoint Platform にサインインし、*[Anypoint Monitoring]* に移動します。
+. 左側のメニューで、*[Settings (設定)]* をクリックします。 +
+. Anypoint Monitoring をインストールしてローカルサーバにデプロイされているアプリケーションを監視するには、*[Hybrid (ハイブリッド)]* を選択します。 +
+Anypoint Monitoring をオンプレミスにインストールする手順が表示されます。 
+. CloudHub にデプロイされているアプリケーションの監視を有効化 (または無効化) するには、*[CloudHub]* を選択します。
+
+== 関連情報
+
+* xref:enable-apps-deployed-to-cloud.adoc[CloudHub にデプロイされた Mule アプリケーションの有効化]
+* xref:am-installing.adoc[Anypoint Monitoring のオンプレミスインストール]
+* xref:configure-monitoring-cloudhub.adoc[Mule アプリケーションの Anypoint Monitoring の設定]

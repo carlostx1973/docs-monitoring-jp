@@ -1,0 +1,59 @@
+= CloudHub にデプロイされた Mule アプリケーションの監視の有効化
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring の *[Settings (設定)]* ページ、アプリケーションの *[Settings (設定)]* ページ、または Anypoint CLI で Mule の非 AM バージョンで実行されている Mule アプリケーションの監視を有効化して、継続的インテグレーションおよび継続的デリバリ (CI/CD) を実現できます。
+
+Mule のサポート対象バージョンについては、xref:configure-monitoring-cloudhub.adoc[「Mule アプリケーションの Anypoint Monitoring の設定」]を参照してください。
+
+== UI を使用した監視の有効化
+
+Anypoint Monitoring の *[Settings (設定)]* ページを使用して、CloudHub にデプロイされ、Mule で実行されているアプリケーションを有効化または無効化できます。 
+
+. Anypoint Platform にサインインし、*[Anypoint Monitoring]* に移動します。
+. 左側のメニューで、*[Settings (設定)]* をクリックします。 
++
+image::monitoring-settings-screen.png[]
++
+. *[CloudHub]* を選択します。 
+. *[Environment (環境)]* ドロップダウンリストで、アプリケーションが実行されている環境を選択します。 +
+選択された環境で実行されているアプリケーションのリストが表示されます。 +
+*[List of resources (リソースのリスト)]* 検索ボックスを使用して、特定のアプリケーションを検索できます。 
+. アプリケーションの横で、*[Enable (有効化)]* をクリックしてアプリケーションの監視を有効化するか、*[Disable (無効化)]* をクリックしてアプリケーションの監視を無効化します。 +
+[NOTE]
+`x.x.x.-AM` バージョンで実行されているアプリケーションはこのリストに表示され、すでに有効化されていますが、これらのアプリケーションをこのページから無効化することはできません。 
+
+== CloudHub 設定での監視の有効化
+
+CloudHub にデプロイされているアプリケーションにプロパティを追加することで、Mule のサポート対象バージョン上で実行されている Mule アプリケーションの監視を有効化できます。
+
+. Anypoint Platform にサインインし、*[Runtime Manager]* に移動します。
+. アプリケーションのリストで、監視を有効化するアプリケーションを選択します。 +
+アプリケーションは CloudHub にデプロイされていて、Mule のサポート対象バージョン上で実行されている必要があります。
+. 左側のメニューで、*[Settings (設定)]* をクリックします。 
+. *[Properties (プロパティ)]* をクリックし、次のプロパティを追加します。 +
+`anypoint.platform.config.analytics.agent.enabled=true`
++
+image::enable-monitoring-cloudhub.png[]
++
+監視を無効化するには、値を `false` に変更します。
+. *[Apply Changes (変更を適用)]* をクリックします。 
+
+== CI/CD デプロイメントの監視の有効化
+
+Anypoint CLI を使用し、CI/CD デプロイメント中に次のプロパティを設定します。
+`anypoint.platform.config.analytics.agent.enabled=true`
+
+== パフォーマンスへの影響
+
+監視を有効にすると、特定のアプリケーション設定に応じて変動する CPU 使用率とメモリ使用量に影響を与えることがあります。MuleSoft では、最適なパフォーマンスとサイジングを維持するために、本番環境で監視を有効化する前に、事前作業環境でパフォーマンスへの影響をテストすることをお勧めします。
+
+== 関連情報
+
+* xref:monitoring-settings-page.adoc[Anypoint Monitoring 設定]
+* xref:configure-monitoring-cloudhub.adoc[Mule アプリケーションの Anypoint Monitoring の設定]
+xref:runtime-manager::anypoint-platform-cli2.adoc[Anypoint CLI]
+
+
+

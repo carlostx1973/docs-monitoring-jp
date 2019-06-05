@@ -1,0 +1,50 @@
+= アラートの設定
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+サブスクリプションレベルに応じて、さまざまな種別のアラートを設定できます。
+
+* API Manager を使用した API の運用アラート
+* Runtime Manager を使用したランタイムの運用アラート
+* Anypoint Monitoring のカスタムダッシュボードでのグラフのアラート
++
+アラートは組織あたり最大 20 件に制限されています。
++
+しきい値は 5 分おきにチェックされます。評価されるクエリは、過去 5 分間のメトリクスの平均値です。評価されるメトリクスは、グラフの [General (一般)] タブで参照されるメトリクスです。値がしきい値を超えると、アラートがトリガされます。アラートは、アラート状態が変化した場合にのみ ([OK] 状態から [Alerting (アラート)] 状態、またはその逆)、トリガされます
+
+== API およびランタイムアラートのセットアップ
+
+Anypoint Monitoring, の [Alerts (アラート)] のリンクから、API アラートおよびランタイムアラートの設定ページに移動できます。
+
+サブスクリプションレベルに応じて、次のようになります。
+
+* アラートがセットアップされていない場合、次のような API および ランタイムアラートセットアップへのリンクが表示されます。
++
+image::alerts-setup.png[API アラートおよびランタイムアラートのセットアップ]
++
+** API Operational Alerts (API 運用アラート): API Manager のアラートに関するガイダンスは、xref:2.x@api-manager::using-api-alerts.adoc[API アラートの概要]を参照してください。これらのアラートは、Anypoint Monitoring の [Alerts (アラート)] ページにはリストされません。
+** Runtime Operational Alerts (ランタイム運用アラート): Runtime Manager のアラートに関するガイダンスは、xref:runtime-manager::alerts-on-runtime-manager.adoc[「About Configuring Alerts using Runtime Manager (Runtime Manager を使用したアラートの設定の概要)」]を参照してください。これらのアラートは、Anypoint Monitoring の [Alerts (アラート)] ページにはリストされません。
+* *https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプションが必要]* - API アラートおよびランタイムアラートへのリンクは表示されず、カスタムダッシュボードのグラフのアラート設定領域を開く方法を示す視覚的なガイダンスが表示されます。
++
+image::alerts-setup-premium.png[アラートセットアップのガイダンス]
+
+== カスタムダッシュボードのグラフのアラートのセットアップ
+
+*https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプションが必要]*
+
+測定しているデータポイント (`JVM - CPU % Utilization` (JVM - CPU 使用率)) が指定されたしきい値を超えたらメール通知をトリガするアラートをセットアップできます。このアラートは、Anypoint Monitoring の 
+[Alerts (アラート)] ページにリストされます。
+
+//ANYPOINT MONITORING ALERTS
+include::{partialsdir}/include-alerts-config.adoc[]
+
+== アラートの追加
+
+[Alerts (アラート)] ページにアラートがリストされると、[Add Alerts (アラートを追加)] を使用して API アラートやランタイムアラートの設定ページに移動できます。カスタムダッシュボードのチャート (ウィジェット) のアラートを設定するための基本的な手順も入手できます。
+
+image::alerts-menu.png[[Alerts (アラート)] メニュー]
+
+カスタムダッシュボードのチャートからアラートの追加または編集を選択することもできます。
+
+image::dashboard-custom-config-dup-delete.png[アラートの追加または編集]

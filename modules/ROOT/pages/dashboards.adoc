@@ -1,0 +1,32 @@
+= ダッシュボード
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring のダッシュボードは、環境 (本番、Sandbox、Design など) にデプロイされている Mule アプリケーションと API を可視化します。
+
+[[builtin_dashboards]]
+== 組み込みダッシュボード
+
+組み込みダッシュボードには、特定の期間に収集された現在および過去のデータをプロットしたグラフが含まれます。各環境の Mule アプリケーションと API ごとに組み込みダッシュボードがあります。
+
+.例: Mule アプリケーションの組み込みダッシュボード
+image::dashboard-built-in.png[組み込みダッシュボードの例]
+
+== カスタムダッシュボード
+
+Anypoint Monitoring のカスタムダッシュボードでは、表示する必要がある重要なメトリクスとデータポイントを 1 画面にまとめることができます。監視するリソースとメトリクスを指定して、次のことができます。
+
+* 多様なメトリクスを相関付ける
+* 比較分析を実行する
+* 通常のトレンドと異常を区別する
+* 問題をすばやく切り分ける
+
+たとえば、ライブデータを過去のデータと比較して異常を検出し、トラブルシューティングプロセスを迅速に進めることができます。
+
+== 関連情報
+
+* xref:dashboards-using.adoc[ダッシュボードの使用]
+* xref:app-dashboards.adoc[組み込みアプリケーションダッシュボード]
+* xref:dashboard-custom-config.adoc[カスタムダッシュボードの設定]
+* xref:api-analytics-dashboard.adoc[API Analytics ダッシュボード]

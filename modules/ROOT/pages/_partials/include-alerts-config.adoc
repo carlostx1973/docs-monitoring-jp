@@ -1,0 +1,77 @@
+= アラートの設定方法
+
+//INCLUDED IN GRAPH CONFIG FILE
+[[alerts]]
+
+////
+TODO_FUTURE?
+You can create, configure, delete, test, and send alerts to people who need to see them. The rules you configure trigger alerts when conditions reach a specified threshold value, for example: *TODO_FUTURE?*  You can also get the history of an alert.
+////
+
+image::graph-alert-config.png[アラート設定]
+
+
+. カスタムダッシュボードでグラフの設定画面に移動します。ガイダンスについては、xref:dashboard-custom-config.adoc[「カスタムダッシュボードの設定」]を参照してください。
+. グラフの [General (一般)] 設定で、アラートを設定するメトリクス、環境、およびリソースを (少なくとも) 定義します。ガイダンスについては、xref:dashboard-custom-config-graph.adoc#general_settings[「[General (一般)] 設定」]を参照してください。
+. グラフの [Alert configuration (アラート設定)] タブに移動します。
+. *[Create Alert (アラートを作成)]* をクリックします。
+. *[Alert Config (アラート設定)]* を使用してアラートを設定します。<<alert_config,「Alert Config (アラート設定)」>>を参照してください。
+. アラートがトリガされたときのメール通知を設定します。<<notifications,「Notifications (通知)」>>を参照してください。
+
+<<state_history,状態履歴>>の表示やアラートの<<delete_alert,削除>>もできます。
+
+[[alert_config]]
+=== Alert Config (アラート設定)
+
+アラートがトリガされる条件を設定できます。
+
+[%header,cols="1,4"]
+|===
+2+| アラートの設定
+| Name (名前) | アラートのタイトル。
+| `Condition` | WHEN (次の条件に一致): [`JVM - CPU % Utilization` (JVM - CPU 使用率)] が指定されたレベルを上回ったらアラートをトリガします。
+|===
+
+////
+TODO _FUTURE?
+.Alert Config
+[%header,cols="1,4"]
+|===
+
+| Name | A title for your alert.
+| `Evaluate Every` | Interval at which to poll for an alert, for example, every sixty seconds (`60s`).
+| Conditions a|
+* WHEN: `min()`, `max()`, `sum()`, `count()`, `last()`, `median()`, `diff()`, `percent_diff()`, `count_non_null()`
+* OF: Example: `query(A, 5m, now)`
+* IS ABOVE or *TODO for other relationships*
+* If No Data or All Values Are Null SET STATE TO `Alerting`, `No Data`, `Keep Last State`, or `Ok`.
+* If Execution Error or Timeout SET STATE TO `Alerting` or `Keep Last State`
+| Test Rule |
+|===
+////
+
+[[notifications]]
+=== Notifications (通知)
+
+アラートがトリガされたときのメール通知を設定します。
+
+[%header,cols="1,4"]
+|===
+2+| アラートの通知設定
+| `Send To` | アラート通知の受信者のメールアドレス。リストに複数のメール受信者を追加できます。
+| `Message` | 受信者に送信するメッセージ。
+|===
+
+設定を完了したら、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。
+
+[[state_history]]
+=== State History (状態履歴)
+
+UI のこのセクションには、過去 50 件の状態変更が表示されます。
+
+履歴を消去することもできます。
+
+[[delete_alert]]
+=== Delete (削除)
+
+アラートを削除するには、左側のメニューで [Delete (削除)] をクリックし、削除を確認します。

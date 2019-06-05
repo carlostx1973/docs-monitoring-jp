@@ -1,0 +1,108 @@
+= カスタムダッシュボードの Singlestat の設定
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring のカスタムダッシュボードでは、特定の時間範囲における Mule アプリケーション環境の 1 つの測定基準 (応答時間やヒープ使用状況など) に関する Singlestat チャートを設定できます。
+
+//GENERAL SETTINGS shared by singlestat and graph
+//== General
+include::{partialsdir}/include-general-config.adoc[]
+
+// TIME RANGE SETTINGS shared by singlestat and table
+//==Time Range
+include::{partialsdir}/include-time-range-config.adoc[]
+
+== Options (オプション) (値、フォント、色、スパークライン、ゲージ設定)
+
+[Options (オプション)] タブには、Singlestat の<<value_singlestat,値>>、<<font_singlestat,フォント>>、<<color_singlestat,色指定>>、<<spark_singlestat,スパークライン>>、<<gauge_singlestat,ゲージアイコン>>の設定が含まれます。
+
+[[value_singlestat]]
+=== Singlestat の [Value (値)] 設定
+
+[Options (オプション)] 設定タブで、Singlestat の値を設定できます。設定には、必要な値の種別 (平均など)、測定単位などが含まれます。
+
+image::singlestat-config-options.png[例: Singlestat の [Options (オプション)]]
+
+[%header,cols="1,4"]
+|===
+2+| Values (値)
+| Stat (統計) a|
+
+Singlestat で表示される値。次の設定を指定できます。
+
+* Min (最小): 指定されたメトリクスについて記録された値の最小値。
+* Max (最大): 指定されたメトリクスについて記録された値の最大値。
+* Average (平均): 指定されたメトリクスについて記録された値の平均。
+* Current (現在): 指定されたメトリクスの現在の値。
+* Total (合計): 指定されたメトリクスについて記録された値の合計。
+* Name (名前): メトリクスの名前 (`worker-0` など)。
+* First (最初): 指定されたメトリクスについて記録された最初の値。
+* Delta (デルタ): 系列内の増分による増加の合計。
+* Difference (差): [Current (現在)] の値 (最終値) と [First (最初)] の値の差。
+* Range (範囲): Min (最小) と Max (最大) の差。
+* Time of Last Point (最終ポイントの時刻): 最後の測定値のタイムスタンプ。
+| Prefix (プレフィックス) | Singlestat 値の先頭に付加されるテキスト。
+| Postfix (ポストフィックス) | Singlestat 値に付加されるテキスト。
+| 単位 | Singlestat 値で表示する測定単位 (`percent (0-100)` (パーセント 0 ～ 100) など)。
+| Decimals (小数) | 凡例とツールチップの自動小数精度を上書きします。
+|===
+
+[[color_singlestat]]
+=== Coloring (色指定) と Thresholds (しきい値) ([Options (オプション)] 設定)
+
+[Options (オプション)] 設定タブで、色分けしたしきい値を Singlestat に追加して、値が期待される制限を超えているか、制限内かを表示できます。
+
+[%header,cols="1,4"]
+|===
+2+| Coloring (色指定)
+| Background (背景) | [Thresholds (しきい値)] 設定で決定された色に合う背景色を追加します。
+| 値 | [Thresholds (しきい値)] 設定で決定された色に合う現在の Singlestat 値の色を適用します。
+| Thresholds (しきい値) | 数値範囲 (`10,20` など) を使用してしきい値を設定し、2 つの数値間の値 (左側の数値より小さく、右側の数値より大きい) を識別します。
+| Colors (色) | [Thresholds (しきい値)] 設定未満の値、設定内の値、または設定を超える値の色を設定します。必要に応じて色を反転させることができます。
+|===
+
+[[spark_singlestat]]
+=== Spark Lines (スパークライン) ([Options (オプション)] 設定)
+
+[Options (オプション)] 設定タブで、Singlestat のスパークライン設定を指定できます。
+
+[%header,cols="1,4"]
+|===
+2+| Spark Lines (スパークライン)
+| Show (表示) | スパークラインを表示または非表示にするためのチェックボックス。
+| Full Height (全体の高さ) | Singlestat の全体の高さを対象にします。
+| Line Color (線の色) | スパークラインの色を選択します。
+| Fill Color (塗りつぶし色) | スパークライン未満の領域の色を選択します。
+|===
+
+[[gauge_singlestat]]
+=== Gauge (ゲージ) ([Options (オプション)] 設定)
+
+[Options (オプション)] 設定タブで、Singlestat の値を表す弧状のゲージを表示できます。
+
+[%header,cols="1,4"]
+|===
+2+| Gauge (ゲージ)
+| Show (表示) | ゲージを表示または非表示にするためのチェックボックス。
+| Min (最小) | 最小値 (パーセントを表示するゲージの `0` など) を設定します。
+| Max (最大) | 最大値 (パーセントを表示するゲージの `100` など) を設定します。
+| Threshold Labels (しきい値の表示ラベル) | [Threshold (しきい値)] 設定を表示または非表示にするためのチェックボックス。
+|===
+
+設定を完了したら、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。
+
+== Value Mappings (値マッピング) (値の表示ラベル)
+
+[Value Mappings (値マッピング)] 設定タブで、概要統計の人間が読み取り可能な表示ラベルを指定できます。
+
+image::singlestat-config-value-mapping.png[例: Value Mapping (値マッピング)]
+
+[%header,cols="1,4"]
+|===
+2+| [Range to Text (テキストに対する範囲)] 設定
+| Value to Text (テキストに対する値) | 数値をテキスト説明にマップします (`0` を `Error`、`1` を `Success` など)。
+| Range to Text (テキストに対する範囲) | 数値範囲をテキスト説明にマップします (`5` ～ `10` をテキスト `Warning` など)。
+|===
+
+設定を完了したら、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。

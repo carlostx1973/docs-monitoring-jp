@@ -1,0 +1,94 @@
+= ダッシュボードの使用
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+組み込みダッシュボードには標準のグラフセットが含まれており、カスタムダッシュボードには組織にとって重要な追加のデータを表示できます。
+
+両方のダッシュボードに、多くの同じ表示オプションを指定できます。
+
+== ダッシュボードのデータ表示オプションの設定
+
+//TODO_HIGH LICENSING MIGHT AFFECT OPTIONS AVAILABLE TO CUSTOMERS. NEED TO CHECK.
+直前の一定期間 (過去 5 分間や過去 30 分間など) または特定の日時範囲に収集されたデータポイントを表示できます。サブスクリプションに応じて、表示データを自動更新することもできます。
+
+image::dashboard-time-period-refresh.png[表示の設定]
+
+== 表示する期間の設定
+
+カレンダーアイコンのドロップダウンを使用して、グラフに表示する期間を選択できます。
+
+次の設定は、グラフに直前の一定期間のデータを表示するためのものです。
+
+image::dashboard-data-intervals.png[一定期間のデータポイント表示]
+
+設定は、ダッシュボードのすべてのグラフに適用されます。ダッシュボードのグラフは次のように表示されます。
+
+.例: 過去 30 分間のデータ
+image::dashboard-response-time-outbound.png[例: 過去 30 分間のデータ]
+
+カスタム設定は、特定の日時範囲のデータを取り出す場合に便利です。
+
+image::dashboard-data-range.png[日時範囲のデータポイント表示]
+
+== 表示する期間の変更
+
+チャートに表示する期間を前または後に延長したり、ズームインまたはアウトして対象期間を縮小または拡大したりできます。
+
+[cols="1,4"]
+|===
+| image:zoom-earlier-later.png[ズームアウト、表示期間を前後に延長] a|
+期間より前または後のデータを表示するには、「より小」(&lt;) および「より大」(&gt;) アイコンを使用します。
+
+ズームアウトしてより長い期間のデータを表示するには、[&lt] アイコンと [&gt] アイコンの間にある虫眼鏡アイコンを使用します。
+|===
+
+特定の期間に発生したアクティビティにズームインする必要がある場合は、マウスを使用して期間を縮小します。
+
+.対象期間をマウスで指定
+image::dashboard-mouseover.png[グラフ: 期間を選択]
+
+たとえば、現在過去 30 分間のデータを表示するグラフを参照している場合、範囲を縮小して関心のある期間のより詳細なデータポイントを表示できます。
+
+.結果のグラフ
+image::dashboard-mouseover-result.png[グラフ: 期間選択の結果]
+
+== データの更新
+
+サブスクリプションで許可されていれば、データを自動的に更新できます。
+
+.[Auto-Refresh (自動更新)] 設定
+image::dashboard-auto-refresh.png[データ更新オプション]
+
+* Base サブスクリプション: このサブスクリプションでは [Auto Refresh (自動更新)] オプションは無効になっています。右側にある円形 (循環) アイコンをクリックするとグラフのデータを手動で更新できます。
+* Titanium (プレミアム) サブスクリプション: [Auto Refresh (自動更新)] を有効にしてから、グラフのデータを更新する間隔 (1m (1 分)、5m (5 分)、15m (15 分) など) を設定できます。更新設定は、ダッシュボードのすべてのグラフに適用されます。
+
+== グラフでの選択した系列データの表示
+
+データの別名 (`Used:worker-0`、`Total:worker-0`、`Average:worker-0` など) をクリックしてグラフで表示または非表示にできます。別名の例については、カラーピッカーの例の上にある <<color_picker, worker-0 alias>> を参照してください。
+
+複数の別名を選択または選択解除するには、Command キーを押しながらクリックします。
+
+== データ表示の新しい色の選択
+
+凡例のカラーバー (たとえば、下の画像の `Total worker-0` の横にある黄色のバー) をクリックしてカラーピッカーを開き、データポイントを接続する線に別の色を選択します。
+
+[[color_picker]]
+image::graph-legend-colors.png[カラーピッカー]
+
+// Right Axis REMOVED in MONITORING-686: You can also move the legend below the right or left y-axis, depending on which side makes sense for your graph.
+
+[[favorite_dashboard]]
+== お気に入りのカスタムダッシュボードの設定
+
+カスタムダッシュボードの上部にある星をクリックして、お気に入りとしてマークします。
+
+[[favorite_star]]
+image::dashboard-custom-favorite.png[星でお気に入りに指定]
+
+カスタムダッシュボードリストに星が次のように表示されます。
+
+[[dashboard_starred]]
+image::dashboard-custom-list.png[お気に入りのカスタムダッシュボード]
+
+カスタムダッシュボードのタグを設定することもできます。xref:dashboard-custom-config.adoc[「カスタムダッシュボードの設定」]を参照してください。

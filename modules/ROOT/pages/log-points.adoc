@@ -1,0 +1,78 @@
+= Anypoint Monitoring ログポイント
+
+Anypoint Monitoring ログポイント機能を使用すると、対話形式で実行中の管理 API からデータを抽出できます。コードの記述やアプリケーションの再デプロイなしで、ログ生成対象の管理 API にプロパティ (たとえば、要求ヘッダー内のホストやメソッドなど) を指定できます。これにより、アプリケーションを再起動せずにトラブルシューティングできます。 
+
+たとえば、API に Cookie ヘッダーを指定して、インジェクション攻撃が進行中かどうかを確認できます。指定された Cookie ヘッダーのログデータは、リアルタイムで自動的にログページに表示されます。
+
+== 前提条件
+
+この機能を使用するには、以下が必要です。 
+
+* Anypoint Monitoring と Mule 3.8.5 の https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプション]
+* *組織のシステム管理者*​権限
+* API の作成または管理権限 
+
+== サポート対象 API
+
+ログポイントは、次の API 種別でサポートされます。
+
+* 基本エンドポイント API (CloudHub およびハイブリッド)
+ ** CloudHub
+ ** ハイブリッド
+* エンドポイントとプロキシ API
+  ** CloudHub プロキシ
+  ** ハイブリッドプロキシ
+
+[NOTE]
+すべての基本エンドポイント API は、登録された API にサポート対象の Mule runtime engine バージョンがあるかどうかに関係なく、セレクタに表示されます。基本エンドポイント API のログエンドポイントがサポート対象外のバージョンで保存されると、アプリケーションポリシーは失敗します。
+
+== サポート対象の Mule runtime engine バージョン
+
+* Mule 3 バージョン 3.8.5 以降
+* Mule 4 バージョン 4.1.1 以降
+
+== API ログポイントの有効化
+
+. Anypoint Platform にサインインし、[Anypoint Monitoring] に移動します。
+. 左側のメニューで、*[Log Points (ログポイント)]* をクリックします。
+. 以下を選択してから、*[Select (選択)]* をクリックします。 +
+* *Environment (環境)* - API が実行されている環境。
+* *Resource name (リソース名)* - API の名前。
+* *Version/Instance (バージョン/インスタンス)* - API のバージョンとインスタンス。
++
+image::log-points-select-api.png[]
+. ログに記録して管理する *[Request (要求)]* ポイントを選択します。 +
+次の要求ヘッダーログポイントを監視できます。 +
+* *User Agent*
+* *Path*
+* *Host*
+* *Method*
+* *Remote Access*
+* *Accept*
+* *Accept Encoding*
+* *Accept Language*
+* *Cookie*
+* *Referrer* +
+*[Header (ヘッダー)]* の左にある青いボックスをクリックすると、すべてのログポイントを選択できます。 +
+*[Request Body (リクエストボディ)]* を監視する場合は、*[Body (ボディ)]* を選択します。
++
+image::enable-log-points-select-points.png[]
+. ログに記録して管理する *[Response (応答)]* ポイントを選択します。 +
+次の要求ヘッダーログポイントを監視できます。 +
+* *Status Code*
+* *Connection*
+* *Date*
+* *Set-Cookie*
+* *Pragma*
++
+*[Header (ヘッダー)]* の左にある青いボックスをクリックすると、すべてのログポイントを選択できます。
+*[Response Body (レスポンスボディ)]* を監視する場合は、*[Body (ボディ)]* を選択します。
+. *[Save & Apply (保存して適用)]* をクリックします。 +
+設定が適用されたことを示すメッセージが *[View API Logs (API ログを表示)]* リンクと一緒にページ上部に表示されます。
+. 選択したログポイントのログを表示するには、*[View API Logs (API ログを表示)]* リンクをクリックします。 +
+ログの表示にはしばらく時間がかかる場合があります。
++
+image::view-api-logs-link.png[]
++
+[NOTE]
+API ログポイントの監視はアプリケーションのパフォーマンスに影響を与える可能性があるため、完了したら、ログポイントの監視を無効化する必要があります。

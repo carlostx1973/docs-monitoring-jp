@@ -1,0 +1,18 @@
+= Anypoint Monitoring のツール
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Anypoint Monitoring 通知を外部システムに配信しやすくするために、Anypoint Monitoring では AppExchange のコネクタへのリンクを提供し、Mule アプリケーションに追加できるようにしています。
+
+.Anypoint Monitoring で使用可能なツール
+image::tools.png[ツール]
+
+Anypoint Exchange に移動する前に、コネクタリンクにカーソルを置くと詳細を確認できます。たとえば、以下のコネクタは、Anypoint Monitoring アラート通知に応じて Salesforce Service Cloud でチケットを作成するものであることがわかります。
+
+|===
+| image:tools-salesforce.png[Salesforce コネクタのリンク] |
+  image:tools-salesforce-description.png[Salesforce コネクタの説明]
+|===
+
+ページの他のコネクタは、Service Now、JIRA やその他のインテグレーションに役立ちます。

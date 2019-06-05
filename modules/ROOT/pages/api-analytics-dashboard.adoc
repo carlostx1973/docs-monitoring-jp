@@ -1,0 +1,101 @@
+= API Analytics ダッシュボード
+
+API Analytics ダッシュボードでは、API 使用状況を監視するチャートが提供され、API の使用状況とパフォーマンスに関するインサイトを得ることができます。
+
+Anypoint Monitoring から、API 監視ダッシュボードにアクセスして、API に関する次のような情報を表示できます。
+
+
+== API Analytics ダッシュボードを表示する
+
+. Anypoint Platform にサインインし、*[Anypoint Monitoring]* に移動します。
+. 表示する API の [Environment (環境)]、[Resource name (リソース名)]、[Version/Instance (バージョン/インスタンス)] を選択します。
+. *[View (表示)]* をクリックします。 +
+API Analytics ページが表示され、実行中の管理 API に関する次のような情報を参照できます。 +
+* Requests by instance (インスタンス別要求数)
+* Requests by HTTP response code (HTTP 応答コード別要求数)
+* Requests by method (メソッド別要求数) 
+* Requests by request and response size (要求および応答サイズ別要求数)
+* Requests by HTTP policy violation (HTTP ポリシー違反別要求数)
+* Requests by failure (失敗別要求数)
++
+image::monitoring-api-analytics-top.png[]
++
+image::monitoring-api-analytics-bottom.png[]
++
+. 統計情報を表示する日時範囲を選択し、*[Confirm (確認)]* をクリックします。 +
+ページ上部の詳細パネルに、API に関する情報が表示されます。
++
+image::api-analytics-detail-panel.png[]
++
+*[View API in API Manager (API Manager で API を表示)]* リンクをクリックして、API Manager で API Analytics を表示できます。
+
+=== Requests by Instance (インスタンス別要求数)
+
+指定された期間にこの API の特定のインスタンスが何回要求されたかに関するメトリクスを表示できます。グラフにカーソルを置くと、より詳細なビューでデータが表示されます。
+
+image::api-request-by-instance.png[]
+
+=== Requests by HTTP Response Code (HTTP 応答コード別要求数)
+
+指定した期間の API インスタンスの HTTP 応答コード別要求総数に関する次のようなデータが表示されます。
+
+* Time (時刻) - 各行は合計が計算された時刻に対応します。
+* Status Code (状況コード) - API コールの HTTP 応答コード。
+* Sum (合計) - 要求の総数と対応する応答コード。
+
+列ヘッダーをクリックすると、その列でデータが並び替えられます。
+
+image::api-requests-by-http-response.png[]
+
+=== Requests by Method (メソッド別要求数)
+
+API のメソッド別要求数に関する次のようなメトリクスが表示されます。
+
+* Method (メソッド) - API のコールに使用されたメソッド。
+* Avg (平均) - 系列内のすべての非 null 値の平均。
+* Min (最小) - 系列内の最小値。
+* Max (最大) - 系列内の最大値。
+* Total (合計) - 系列内のすべての値の合計。
+* Count (件数) - 系列内のすべての非 null 値の合計。
+
+列ヘッダーをクリックすると、その列でデータが並び替えられます。
+
+image::api-request-by-method.png[]
+
+=== Requests by Request and Response Size (要求および応答サイズ別要求数)
+
+API の要求および応答サイズに従ってメトリクスが表示されます。
+
+image::api-request-by-request-and-response-size.png[]
+
+=== Requests by HTTP Policy Violation (HTTP ポリシー違反別要求数)
+
+指定されたポリシーについて却下されたトラフィックと却下されなかったトラフィックに関する次のようなメトリクスが表示されます。
+
+* Policy (ポリシー) - API インスタンスに適用されたポリシーの名前。
+* Avg (平均) - 系列内のすべての非 null 値の平均。
+* Min (最小) - 系列内の最小値。
+* Max (最大) - 系列内の最大値。
+* Total (合計) - 系列内のすべての値の合計。
+* Count (件数) - 系列内のすべての非 null 値の合計。
+
+列ヘッダーをクリックすると、その列でデータが並び替えられます。
+
+image::api-request-by-http-policy-violation.png[]
+
+
+=== Requests by Failure (失敗別要求数)
+
+失敗した API への要求に関する次のような情報が表示されます。
+
+* Error code (エラーコード) - 失敗種別に対応する HTTP エラーコード。
+* Avg (平均) - 系列内のすべての非 null 値の平均。
+* Min (最小) - 系列内の最小値。
+* Max (最大) - 系列内の最大値。
+* Total (合計) - 系列内のすべての値の合計。
+* Count (件数) - 系列内のすべての非 null 値の合計。
+
+列ヘッダーをクリックすると、その列でデータが並び替えられます。
+
+
+image::api-request-by-failure.png[]

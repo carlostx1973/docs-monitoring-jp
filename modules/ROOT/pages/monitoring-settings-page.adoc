@@ -10,7 +10,7 @@ endif::[]
 
 == [Settings (設定)] ページにアクセスする
 
-*[Settings (設定)]* ページにアクセスするには、*Anypoint Monitoring ユーザ*権限が必要です。xref:access-management::users#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」](ユーザへの権限とロールの付与) を参照してください。
+*[Settings (設定)]* ページにアクセスするには、*Anypoint Monitoring ユーザ*権限が必要です。xref:access-management::users#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」] (ユーザへの権限とロールの付与) を参照してください。
 
 . Anypoint Platform にサインインし、*[Anypoint Monitoring]* に移動します。
 . 左側のメニューで、*[Settings (設定)]* をクリックします。 +

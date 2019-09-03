@@ -8,9 +8,8 @@ Anypoint Monitoring ログポイント機能を使用すると、対話形式で
 
 この機能を使用するには、以下が必要です。 
 
-* Anypoint Monitoring と Mule 3.8.5 の https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプション]
-* *組織のシステム管理者*​権限
-* API の作成または管理権限 
+* Anypoint Monitoring と Mule 3.8.5 以降の https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプション]
+* ​*[API Manager] > [Manage Policies (ポリシーの管理)]*​ 権限
 
 == サポート対象 API
 
@@ -34,42 +33,42 @@ Anypoint Monitoring ログポイント機能を使用すると、対話形式で
 == API ログポイントの有効化
 
 . Anypoint Platform にサインインし、[Anypoint Monitoring] に移動します。
-. 左側のメニューで、*[Log Points (ログポイント)]* をクリックします。
-. 以下を選択してから、*[Select (選択)]* をクリックします。 +
-* *Environment (環境)* - API が実行されている環境。
-* *Resource name (リソース名)* - API の名前。
-* *Version/Instance (バージョン/インスタンス)* - API のバージョンとインスタンス。
+. 左側のメニューで、​*[Log Points (ログポイント)]*​ をクリックします。
+. 以下を選択してから、​*[Select (選択)]*​ をクリックします。 +
+* ​*Environment (環境)*​ - API が実行されている環境。
+* ​*Resource name (リソース名)*​ - API の名前。
+* ​*Version/Instance (バージョン/インスタンス)*​ - API のバージョンとインスタンス。
 +
 image::log-points-select-api.png[]
-. ログに記録して管理する *[Request (要求)]* ポイントを選択します。 +
+. ログに記録して管理する ​*[Request (要求)]*​ ポイントを選択します。 +
 次の要求ヘッダーログポイントを監視できます。 +
-* *User Agent*
-* *Path*
-* *Host*
-* *Method*
-* *Remote Access*
-* *Accept*
-* *Accept Encoding*
-* *Accept Language*
-* *Cookie*
-* *Referrer* +
-*[Header (ヘッダー)]* の左にある青いボックスをクリックすると、すべてのログポイントを選択できます。 +
-*[Request Body (リクエストボディ)]* を監視する場合は、*[Body (ボディ)]* を選択します。
+* ​*User Agent (ユーザエージェント)*​
+* ​*Path (パス)*​
+* ​*Host (ホスト)*​
+* ​*Method (メソッド)*​
+* ​*Remote Access (リモートアクセス)*​
+* ​*Accept (受け入れ)*​
+* ​*Accept Encoding (エンコードの受け入れ)*​
+* ​*Accept Language (言語の受け入れ)*​
+* ​*Cookie*​
+* ​*Referrer (リファラ)*​ +
+​*[Header (ヘッダー)]*​ の左にある青いボックスをクリックすると、すべてのログポイントを選択できます。 +
+​*[Request Body (リクエストボディ)]*​ を監視する場合は、​*[Body (ボディ)]*​ を選択します。
 +
 image::enable-log-points-select-points.png[]
-. ログに記録して管理する *[Response (応答)]* ポイントを選択します。 +
+. ログに記録して管理する ​*[Response (応答)]*​ ポイントを選択します。 +
 次の要求ヘッダーログポイントを監視できます。 +
-* *Status Code*
-* *Connection*
-* *Date*
-* *Set-Cookie*
-* *Pragma*
+* ​*Status Code (状況コード)*​
+* ​*Connection (接続)*​
+* ​*Date (日付)*​
+* ​*Set-Cookie (Cookie を設定)*​
+* ​*Pragma*​
 +
-*[Header (ヘッダー)]* の左にある青いボックスをクリックすると、すべてのログポイントを選択できます。
-*[Response Body (レスポンスボディ)]* を監視する場合は、*[Body (ボディ)]* を選択します。
-. *[Save & Apply (保存して適用)]* をクリックします。 +
-設定が適用されたことを示すメッセージが *[View API Logs (API ログを表示)]* リンクと一緒にページ上部に表示されます。
-. 選択したログポイントのログを表示するには、*[View API Logs (API ログを表示)]* リンクをクリックします。 +
+​*[Header (ヘッダー)]*​ の左にある青いボックスをクリックすると、すべてのログポイントを選択できます。
+​*[Response Body (レスポンスボディ)]*​ を監視する場合は、​*[Body (ボディ)]*​ を選択します。
+. ​*[Save & Apply (保存して適用)]*​ をクリックします。 +
+設定が適用されたことを示すメッセージが ​*[View API Logs (API ログを表示)]*​ リンクと一緒にページ上部に表示されます。
+. 選択したログポイントのログを表示するには、​*[View API Logs (API ログを表示)]*​ リンクをクリックします。 +
 ログの表示にはしばらく時間がかかる場合があります。
 +
 image::view-api-logs-link.png[]

@@ -1,4 +1,4 @@
-= Mule アプリケーションの Anypoint Monitoring の設定 (CloudHub)
+= Mule アプリケーションの Anypoint Monitoring の設定と有効化 (CloudHub)
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,10 +7,14 @@ CloudHub で管理されている Mule アプリケーションの監視を開�
 
 == CloudHub にデプロイされている Mule のサポート対象バージョン
 
-Anypoint Monitoring イメージ (たとえば 3.8.7-AM) は毎月 1 回最新のパッチ更新を受信するのに対し、非 AM イメージはパッチ更新をリリースされ次第受信します。本番環境で Mule Runtime Engine のパッチが必要な場合、非 AM のランタイムに切り替える必要があります。
+Anypoint Monitoring の非 AM イメージはパッチ更新をリリースされ次第受信するのに対し、AM イメージは毎月 1 回のみ最新のパッチ更新を受信します。本番環境で Mule Runtime Engine のパッチが必要な場合、非 AM イメージに切り替えることをお勧めします。
 
 |===
 | プラットフォーム | Mule バージョン | 機能
+
+| Anypoint Platform (CloudHub)
+| 4.2.0
+| メトリクスとログ
 
 | Anypoint Platform (CloudHub)
 | 4.1.5
@@ -46,10 +50,10 @@ Anypoint Monitoring イメージ (たとえば 3.8.7-AM) は毎月 1 回最新�
 
 | Anypoint Platform (CloudHub)
 | 3.8.7-AM
-| ログのみ
+| ログ
 |===
 
-メトリクスは、xref:dashboards.adoc[ダッシュボード]内のグラフや他のチャートで使用されます。
+メトリクスは、​xref:dashboards.adoc[ダッシュボード]​内のグラフや他のチャートで使用されます。
 
 [[update_app]]
 == ランタイムバージョンの設定
@@ -58,16 +62,16 @@ Mule アプリケーションのランタイムバージョンを設定または
 
 * 新規および既存の Mule アプリケーションの場合:
 +
-. そのアプリケーションの Runtime Manager で *[Settings (設定)]* に移動します。
-. *[Runtime Version (ランタイムバージョン)]* セレクタから新しいランタイムを選択します。
+. そのアプリケーションの Runtime Manager で ​*[Settings (設定)]*​ に移動します。
+. ​*[Runtime Version (ランタイムバージョン)]*​ セレクタから新しいランタイムを選択します。
 +
 ドロップダウンメニューにサポート対象のランタイムバージョンが表示されない場合は、
-*[Show Old Patch Releases (以前のパッチリリースを表示)]* までスクロールダウンし、アプリケーションのランタイムをクリックして選択します。
+​*[Show Old Patch Releases (以前のパッチリリースを表示)]*​ までスクロールダウンし、アプリケーションのランタイムをクリックして選択します。
 +
 * Anypoint CLI デプロイメントの場合:
 +
 Anypoint CLI を使用して Mule アプリケーションをデプロイしている場合 (ビルドパイプラインを使用する場合など)、
-適切な値を指定した `--runtime` パラメータを含める必要があります。
+適切な値を指定した ​`--runtime`​ パラメータを含める必要があります。
 たとえば、次のようにします。
 +
 [src,command,linenums]
@@ -80,8 +84,57 @@ anypoint-cli --username="..." --password="..."
 +
 * Maven デプロイメントの場合:
 +
-デプロイメントに Maven を使用している場合、`pom.xml` ファイル内の `<muleVersion>` タグを
-変更して `-AM` を付加する必要があります。たとえば、`<muleVersion>3.9.0</muleVersion>` を `<muleVersion>3.9.0-AM</muleVersion>` に変更します。
+デプロイメントに Maven を使用している場合、​`pom.xml`​ ファイル内の ​`<muleVersion>`​ タグを
+変更して ​`-AM`​ を付加する必要があります。たとえば、​`<muleVersion>3.9.0</muleVersion>`​ を ​`<muleVersion>3.9.0-AM</muleVersion>`​ に変更します。
+
+== CloudHub にデプロイされたアプリケーションの監視の有効化
+
+Anypoint Monitoring の ​*[Settings (設定)]*​ ページ、アプリケーションの ​*[Settings (設定)]*​ ページ、または Anypoint CLI で Mule の非 AM バージョンで実行されている Mule アプリケーションの監視を有効化して、継続的インテグレーションおよび継続的デリバリ (CI/CD) を実現できます。
+
+Mule のサポート対象バージョンについては、​xref:configure-monitoring-cloudhub.adoc[「Mule アプリケーションの Anypoint Monitoring の設定」]​を参照してください。
+
+== UI を使用した監視の有効化
+
+Anypoint Monitoring の ​*[Settings (設定)]*​ ページを使用して、CloudHub にデプロイされ、Mule で実行されているアプリケーションを有効化または無効化できます。 
+
+. Anypoint Platform にサインインし、​*[Anypoint Monitoring]*​ に移動します。
+. 左側のメニューで、​*[Settings (設定)]*​ をクリックします。 
++
+image::monitoring-settings-screen.png[]
++
+. ​*[CloudHub]*​ を選択します。 
+. ​*[Environment (環境)]*​ ドロップダウンリストで、アプリケーションが実行されている環境を選択します。 +
+選択された環境で実行されているアプリケーションのリストが表示されます。 +
+​*[List of resources (リソースのリスト)]*​ 検索ボックスを使用して、特定のアプリケーションを検索できます。 
+. アプリケーションの横で、​*[Enable (有効化)]*​ をクリックしてアプリケーションの監視を有効化するか、​*[Disable (無効化)]*​ をクリックしてアプリケーションの監視を無効化します。 +
+[NOTE]
+​`x.x.x.-AM`​ バージョンで実行されているアプリケーションはこのリストに表示され、すでに有効化されていますが、これらのアプリケーションをこのページから無効化することはできません。 
+
+== CloudHub 設定での監視の有効化
+
+CloudHub にデプロイされているアプリケーションにプロパティを追加することで、Mule のサポート対象バージョン上で実行されている Mule アプリケーションの監視を有効化できます。
+
+. Anypoint Platform にサインインし、​*[Runtime Manager]*​ に移動します。
+. アプリケーションのリストで、監視を有効化するアプリケーションを選択します。 +
+アプリケーションは CloudHub にデプロイされていて、Mule のサポート対象バージョン上で実行されている必要があります。
+. 左側のメニューで、​*[Settings (設定)]*​ をクリックします。 
+. ​*[Properties (プロパティ)]*​ をクリックし、次のプロパティを追加します。 +
+​`anypoint.platform.config.analytics.agent.enabled=true`​
++
+image::enable-monitoring-cloudhub.png[]
++
+監視を無効化するには、値を ​`false`​ に変更します。
+. ​*[Apply Changes (変更を適用)]*​ をクリックします。 
+
+== CI/CD デプロイメントの監視の有効化
+
+Anypoint CLI を使用し、CI/CD デプロイメント中に次のプロパティを設定します。
+​`anypoint.platform.config.analytics.agent.enabled=true`​
+
+== パフォーマンスへの影響
+
+監視を有効にすると、特定のアプリケーション設定に応じて変動する CPU 使用率とメモリ使用量に影響を与えることがあります。MuleSoft では、最適なパフォーマンスとサイジングを維持するために、本番環境で監視を有効化する前に、事前作業環境でパフォーマンスへの影響をテストすることをお勧めします。
+
 
 == 関連情報
 

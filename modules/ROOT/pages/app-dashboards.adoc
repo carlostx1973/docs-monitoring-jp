@@ -7,15 +7,13 @@ endif::[]
 
 image::dashboard-built-in-info.png[組み込みダッシュボードのアプリケーションのデプロイメント情報]
 
-組み込みダッシュボードのグラフとテーブルでは、次のようなさまざまなメトリクスがサポートされます。
+組み込みダッシュボードのグラフとテーブルでは、アプリケーションメトリクスを含む、さまざまなメトリクスがサポートされます。​*[Overview (概要)]*​ タブには、全体的な測定基準が表示されます。​*[Inbound (インバウンド)]*​、​*[Outbound (アウトバウンド)]*​、​*[Failure (失敗)]*​ の各タブにはより詳細なアプリケーションメトリクスが表示されます。
 
-* アプリケーションメトリクス。[Overview (概要)] タブには全体的な測定基準、[Inbound (インバウンド)]、[Outbound (アウトバウンド)]、[Failure (失敗)] の各タブにはより詳細なアプリケーションメトリクスが表示されます。
-+
-重要なユースケースとして、問題の発生源を特定するのに役立つ、API コールのエンドツーエンドの追跡と連動関係分析があります。たとえば、各エンドポイントでの応答時間を追跡できます (アウトバウンドまたはインバウンド)。
-+
+監視のユースケース例として、問題の発生源を特定するのに役立つ、API コールのエンドツーエンドの追跡と連動関係分析があります。たとえば、各エンドポイントでの応答時間を追跡できます (アウトバウンドまたはインバウンド)。
+
 .例: Average Response Time Grouped by Endpoint Outbound (エンドポイント別にグループ化された平均応答時間 (アウトバウンド))
 image::dashboard-outbound-response-table.png[Average Response Time Grouped by Endpoint Outbound (エンドポイント別にグループ化された平均応答時間 (アウトバウンド))]
-+
+
 * インフラストラクチャレベルおよび JVM メトリクス
 * パフォーマンスメトリクス。インバウンドおよびアウトバウンドの応答時間から平均とパーセンタイルが算出されます。
 
@@ -23,9 +21,9 @@ image::dashboard-outbound-response-table.png[Average Response Time Grouped by En
 
 組み込みダッシュボードとカスタムダッシュボードを Anypoint Monitoring から使用できます。組み込みダッシュボードとカスタムダッシュボードのどちらでも、CloudHub とハイブリッド対象にデプロイされたアプリケーションのアプリケーションメトリクスを表示できます。
 
-. Anypoint Platform にサインインし、*[Monitoring (監視)]* をクリックします。
-. アプリケーションまたは API の *[Environment (環境)]* と *[Resource name (リソース名)]* を選択して、対応するダッシュボードを表示します。
-. *[View (表示)]* をクリックします。 +
+. Anypoint Platform にサインインし、​*[Monitoring (監視)]*​ をクリックします。
+. アプリケーションまたは API の ​*[Environment (環境)]*​ と ​*[Resource name (リソース名)]*​ を選択して、対応するダッシュボードを表示します。
+. ​*[View (表示)]*​ をクリックします。 +
 アプリケーションまたは API の組み込みダッシュボードが表示されます。
 . 別のリソースのダッシュボードに切り替えるには、画面上部にある組み込みダッシュボードセレクタをクリックします。
 +
@@ -38,10 +36,11 @@ image::builtin-dashboard-selection-interaction.png[組み込みダッシュボ�
 [%header,cols="1,4"]
 |===
 | 組み込みダッシュボード | チャート
-| *概要* a|
+| ​*Overview (概要)*​ a|
 
 * Total Inbound Requests (要求総数 (インバウンド))
 * Average Response Time Inbound (平均応答時間 (インバウンド))
+* Mule messages (Mule メッセージ)
 * Total Outbound Requests (要求総数 (アウトバウンド))
 * Average Response Time Outbound (平均応答時間 (アウトバウンド))
 * CPU Utilization (CPU 使用率)
@@ -54,45 +53,49 @@ image::builtin-dashboard-selection-interaction.png[組み込みダッシュボ�
 //* Response Time by Outbound Endpoint: Number of milliseconds (ms) for a response from outbound endpoints of your Mule app.
 //* CPU: Percentage of CPU used over time. The percentages are calculated per worker and as the total for all workers.
 //* Memory: Number of mebibytes (MiB) used over time.
-| *Inbound (インバウンド)* a|
+| ​*Inbound (インバウンド)*​ a|
 
 * Total Inbound Requests (要求総数 (インバウンド))
 * Average Response Time Inbound (平均応答時間 (インバウンド))
 * Average Response Time by Endpoint (エンドポイント別平均応答時間)
-* Response Time (応答時間) グラフ (99、90、75、50 パーセンタイル (インバウンド)): ミリ秒 (ms) で測定。
+* Response Time (応答時間) グラフ (99、90、75、50 パーセンタイル (インバウンド)): ミリ秒 (ms) で測定
 * Maximum Response Time (最大応答時間)
 * Total Inbound Calls (コール総数 (インバウンド)) 
-* Slow Requests (低速要求数): 応答時間 > 1000ms のコール総数
+* Slow Requests (低速要求数): 応答時間 > 1000ms のコール総数 
+
+[NOTE]
+インバウンドメトリクスは 24 時間保持されます。
 
 //* Total Inbound Calls (success or failure)
 //* Total Inbound by Endpoint Outbound
-//* Average Response Time Inbound
-| *Outbound (アウトバウンド)* a|
+//* Average response time inbound
+| ​*Outbound (アウトバウンド)*​ a|
 
 * Total Outbound Requests (要求総数 (アウトバウンド))
 * Average Response Time Outbound (平均応答時間 (アウトバウンド))
 * Average Response Time Grouped by Endpoint Outbound (エンドポイント別にグループ化された平均応答時間 (アウトバウンド))
-* Response Time (応答時間) グラフ (99、90、75、50 パーセンタイル (アウトバウンド)): ミリ秒 (ms) で測定。
+* Response Time (応答時間) グラフ (99、90、75、50 パーセンタイル (アウトバウンド)): ミリ秒 (ms) で測定
 * Total Outbound Calls - Failed (コール失敗総数 (アウトバウンド))
 
 //* Total Outbound Calls (success or failure)
 //* Total Outbound by Endpoint Outbound
-| *コネクタ* a|
+| ​*Connectors (コネクタ)*​ a|
 
-CloudHub にデプロイされたアプリケーションには *[Connectors (コネクタ)]* タブは表示されません。 
+CloudHub にデプロイされたアプリケーションには ​*[Connectors (コネクタ)]*​ タブは表示されません。 
 
-*[Connectors (コネクタ)]* タブが表示されない場合は、Anypoint Platform の Titanium サブスクリプションがあることと、選択したアプリケーションがサーバ、サーバグループ、またはクラスタにデプロイされたハイブリッドアプリケーションであることを確認してください。xref:monitor-connectors.adoc[「コネクタの監視」]を参照してください。
-| *Performance (パフォーマンス)* a|
+​*[Connectors (コネクタ)]*​ タブが表示されない場合は、Anypoint Platform の Titanium サブスクリプションがあることと、選択したアプリケーションがサーバ、サーバグループ、またはクラスタにデプロイされたハイブリッドアプリケーションであることを確認してください。​xref:monitor-connectors.adoc[「コネクタの監視」]​を参照してください。
+| ​*Performance (パフォーマンス)*​ a|
 
 * Average Response Time Inbound (平均応答時間 (インバウンド))
 * Average Response Time Grouped by Endpoint Inbound (エンドポイント別にグループ化された平均応答時間 (インバウンド))
+* Mule messages (Mule メッセージ)
 * Response Time (応答時間) グラフ: 99、90、75、50 パーセンタイル (インバウンド)
 * Average Response Time Outbound (平均応答時間 (アウトバウンド))
 * Average Response Time Grouped by Endpoint Outbound (エンドポイント別にグループ化された平均応答時間 (アウトバウンド))
 * Response Time (応答時間) グラフ: 99、90、75、50 パーセンタイル(アウトバウンド)
 //* Response Time graphs: 99, 90, 75, and 50 Percentile Inbound
 //* Average Response Time: Outbound, Grouped by Endpoint Outbound
-| *Failures (失敗)* a|
+| ​*Failures (失敗)*​ a|
 
 * Total Failed Inbound Requests (失敗した要求総数 (インバウンド))
 * Total Failed Outbound Requests (失敗した要求総数 (アウトバウンド))
@@ -100,7 +103,7 @@ CloudHub にデプロイされたアプリケーションには *[Connectors (�
 * All Outbound Grouped By Response Type (応答種別でグループ化された全アウトバウンド)
 * Total Failed Inbound Grouped By Endpoint (エンドポイント別にグループ化された全失敗インバウンド)
 * Total Failed Outbound Grouped By Endpoint (エンドポイント別にグループ化された全失敗アウトバウンド)
-| *JVM* a|
+| ​*JVM*​ a|
 
 * Garbage Collection Count (ガーベージコレクション数)、Garbage Collection Time (ガーベージコレクション時間)
 * Par New Collection Count (Par New 回収数)、Par New Collection Time (Par New 回収時間)
@@ -114,7 +117,7 @@ CloudHub にデプロイされたアプリケーションには *[Connectors (�
 * Code Cache (コードキャッシュ) グラフ (Used (使用済み)、Max (最大)、Init (初期)、Committed (コミット済み)): コードキャッシュプールの使用状況メトリクス
 * Compressed Class Space (圧縮クラス領域) グラフ (Used (使用済み)、Max (最大)、Init (初期)、Committed (コミット済み)): 圧縮クラスポインタのメタデータ値の使用状況メトリクス
 * Committed Virtual Memory (コミット済み仮想メモリ): 実行プロセスで使用できることが保証されている仮想メモリ量   
-| *Infrastructure (インフラストラクチャ)* a|
+| ​*Infrastructure (インフラストラクチャ)*​ a|
 
 * Application Process CPU Load (アプリケーションプロセスの CPU 負荷): JVM で使用された CPU 負荷の量
 * Application Process CPU Minutes (アプリケーションプロセスの CPU 時間): JVM が実行されているプロセスで使用された CPU 時間
@@ -123,14 +126,19 @@ CloudHub にデプロイされたアプリケーションには *[Connectors (�
 * Memory Utilization (メモリ使用量):各ワーカーの経時的メモリ使用量
 * Total System Processors (システムプロセッサ総数): ワーカーが使用可能な経時的システムプロセッサ数
 * Total System Memory: (総システムメモリ) ワーカーが使用可能な経時的システムメモリ量 +
-Titanium サブスクリプションがあり、選択したアプリケーションがハイブリッドの場合、このグラフは *[System Memory (システムメモリ)]* に変わります。
+Titanium サブスクリプションがあり、選択したアプリケーションがハイブリッドの場合、このグラフは ​*[System Memory (システムメモリ)]*​ に変わります。
 * System Memory (システムメモリ): このグラフは、Titanium サブスクリプションがあり、選択したアプリケーションがハイブリッドの場合にのみ表示されます。このグラフは、ワーカーごとの空きシステムメモリ合計を表示します。
 * Thread Count (スレッド数) - ワーカーの経時的同時要求数。
 
 .例: [Infrastructure (インフラストラクチャ)] ダッシュボード
 image::dashboard-built-in-infrastructure.png[例: [Infrastructure (インフラストラクチャ)] ダッシュボード]
-| *Custom metrics (カスタムメトリクス)* a|
+| ​*Custom metrics (カスタムメトリクス)*​ a|
 
-[Custom metrics (カスタムメトリクス)] タブは、Titanium サブスクリプションがあり、サーバ、サーバグループ、またはクラスタにデプロイされたハイブリッドアプリケーションが選択されている場合にのみ表示されます。xref:anypoint-custom-metrics-connector.adoc[「Anypoint Custom Metrics コネクタ」]を参照してください。
+​*[Custom metrics (カスタムメトリクス)]*​ タブは、Titanium サブスクリプションがあり、Mule のサポート対象バージョンで実行されているアプリケーションを選択した場合にのみ表示されます。​xref:anypoint-custom-metrics-connector.adoc[「Anypoint Custom Metrics コネクタ」]​を参照してください。
 |===
 
+== 関連情報
+
+* xref:dashboard-custom-config.adoc[カスタムダッシュボードおよびチャートの設定]
+* xref:reports.adoc[レポート]
+* xref:save-builtin-dashboard-as-custom.adoc[カスタムダッシュボードとしての組み込みダッシュボードの保存]

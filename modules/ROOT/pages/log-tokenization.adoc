@@ -1,0 +1,59 @@
+= ログトークナイゼーション
+
+[NOTE]
+この機能を使用するには、Titanium サブスクリプションが必要です。 
+
+アプリケーションメトリクスは収集され、Anypoint Monitoring に転送されます。Anypoint Monitoring ログ管理コンソールではログを管理および検索できます。ログトークナイゼーションは、機密データが含まれる可能性があるログに追加のセキュリティレイヤを提供します。 
+
+ログメッセージは、形式が多種多様であるために、意味のあるトークナイゼーションを適用するための解析が難しいことがあります。トークナイゼーションサービスコネクタは、ログの構造化されていないコンテンツを解析してブレークポイントを見つけ、ログメッセージを意味のあるトークンに分解できるようにすることで、ログのトークナイゼーションを促進します。Runtime Fabric で実行されている Anypoint Security トークナイゼーションサービスを利用して、Mule アプリケーションログのトークナイゼーションとトークナイゼーション解除ができます。 
+
+== サポート対象の Mule バージョン
+
+ログトークナイゼーションは次のバージョンでサポートされます。
+
+* Mule 3.x または 4.x で実行されているハイブリッドアプリケーション
+* Mule 3.x または 4.x で実行されている CloudHub アプリケーション  
+
+== 前提条件
+
+. ​xref:runtime-fabric::install-create-rtf-arm.adoc[Runtime Fabric をインストール]​します。
+. Runtime Fabric で​xref:runtime-fabric::enable-inbound-traffic.adoc[インバウンドトラフィックを有効化]​します。 
+. Anypoint Security で、​xref:anypoint-security::create-tokenization-format.adoc[トークナイゼーション形式を作成]​します。
+. Runtime Manager で、​xref:anypoint-security::tokenization-example.adoc[トークナイゼーションサービスを作成]​します。 
+. API Manager で、Mule アプリケーションがプロキシとして機能するように ​xref:2.x@api-manager::getting-started-proxy.adoc[API ゲートウェイをセットアップ]​します。
+
+== 必須コンポーネントをアプリケーションフローに追加する
+
+ログトークナイゼーションを有効化するには、Flow Designer または Studio を使用してアプリケーションフローを作成し、必須コンポーネントを追加する必要があります。 
+
+. Flow Designer または Studio で、Mule アプリケーションのアプリケーションフローを作成します。 
+. 次のコンポーネントを Mule アプリケーションフローに追加します。 +
+
+[%header,cols="a,a"]
+|===
+|コンポーネント |説明
+|Logger コンポーネント | このコアコンポーネントは、重要な情報をログに記録します。Logger コンポーネントはフローのどこにでも追加できます。​xref:mule-runtime::logger-component-reference.adoc[「Logger コンポーネント」]​を参照してください。
+|トークナイゼーション API a|トークナイゼーション API を使用すると、設定したトークナイゼーションサービスをコールして、機密データ要素を機密ではない同等の要素に置き換えることができます。 +
+トークナイゼーション API は、MuleSoft 公開ポータルで使用できます。&#8203;https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[Anypoint Exchange] に移動し、「Tokenization API」(トークナイゼーション API) を検索します。 
+
+|ログトークナイゼーションコネクタ
+|ログトークナイゼーションコネクタは ​*[Monitoring (監視)] > [Tools (ツール)]*​ にあります。
+|===
+. アプリケーションフローを設定したら、Anypoint Monitoring の左側のメニューで ​*[Log Search (ログ検索)]*​ をクリックします。 +
+ログ検索ページでは、トークナイゼーションされた値を検索できます。 
+. 値のトークナイゼーションを解除するには、API Manager に移動します。​xref:2.x@api-manager::policy-mule4-detokenization.adoc[「Detokenization Policy (トークナイゼーション解除ポリシー)」]​を参照してください。 +
+[NOTE]
+値のトークナイゼーションを解除するには、​*「ポリシーの管理」*​権限が必要です。​xref:2.x@api-manager::environment-permission-task.adoc[「環境にアクセスするための権限の付与」]​を参照してください。
+
+== 関連情報
+
+* xref:exchange::index.adoc[Anypoint Exchange]
+* xref:design-center::about-designing-a-mule-application.adoc[Flow Designer]
+* xref:anypoint-security::tokenization.adoc[トークナイゼーションサービス]
+* xref:2.x@api-manager::policy-mule4-tokenization.adoc[トークナイゼーションポリシー]
+
+
+
+
+
+

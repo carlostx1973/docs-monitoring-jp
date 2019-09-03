@@ -65,13 +65,13 @@ image::dashboard-auto-refresh.png[データ更新オプション]
 
 == グラフでの選択した系列データの表示
 
-データの別名 (`Used:worker-0`、`Total:worker-0`、`Average:worker-0` など) をクリックしてグラフで表示または非表示にできます。別名の例については、カラーピッカーの例の上にある <<color_picker, worker-0 alias>> を参照してください。
+データの別名 (​`Used:worker-0`​、​`Total:worker-0`​、​`Average:worker-0`​ など) をクリックしてグラフで表示または非表示にできます。別名の例については、カラーピッカーの例の上にある ​<<color_picker​,​ worker-0 alias>>​ を参照してください。
 
 複数の別名を選択または選択解除するには、Command キーを押しながらクリックします。
 
 == データ表示の新しい色の選択
 
-凡例のカラーバー (たとえば、下の画像の `Total worker-0` の横にある黄色のバー) をクリックしてカラーピッカーを開き、データポイントを接続する線に別の色を選択します。
+凡例のカラーバー (たとえば、下の画像の ​`Total worker-0`​ の横にある黄色のバー) をクリックしてカラーピッカーを開き、データポイントを接続する線に別の色を選択します。
 
 [[color_picker]]
 image::graph-legend-colors.png[カラーピッカー]
@@ -91,4 +91,4 @@ image::dashboard-custom-favorite.png[星でお気に入りに指定]
 [[dashboard_starred]]
 image::dashboard-custom-list.png[お気に入りのカスタムダッシュボード]
 
-カスタムダッシュボードのタグを設定することもできます。xref:dashboard-custom-config.adoc[「カスタムダッシュボードの設定」]を参照してください。
+カスタムダッシュボードのタグを設定することもできます。​xref:dashboard-custom-config.adoc[「カスタムダッシュボードの設定」]​を参照してください。

@@ -10,62 +10,62 @@ Anypoint Monitoring は、ログファイルを集約してログの管理、検
 
 == 検索ログ
 
-Anypoint Monitoring の左側のメニューで *[Log Search (ログ検索)]* をクリックします。ログ検索ページでは、いくつかの異なる方法でログのテキストを検索できます。検索項目に検索クエリを入力する方法、UI を使用して検索条件を追加する方法、クエリを作成する方法があります。
+Anypoint Monitoring の左側のメニューで ​*[Log Search (ログ検索)]*​ をクリックします。ログ検索ページでは、いくつかの異なる方法でログのテキストを検索できます。検索項目に検索クエリを入力する方法、UI を使用して検索条件を追加する方法、クエリを作成する方法があります。
 
 === ログ検索クエリ
 
-ログを検索するには、検索クエリをログ検索項目に入力し、*Enter* キーを押します。
+ログを検索するには、検索クエリをログ検索項目に入力し、​*Enter*​ キーを押します。
 
-検索する語を正確に指定します。たとえば、不正な要求を見つけるには「`"code 400"`」と入力します。複数単語の
+検索する語を正確に指定します。たとえば、不正な要求を見つけるには「​`"code 400"`​」と入力します。複数単語の
 完全一致を見つけるには、検索語を引用符で
 囲みます。 
 
-`"code 400"` の検索結果の例:
+​`"code 400"`​ の検索結果の例:
 
 image::log-search-string.png[ログ検索]
 
 正確な語がわからない場合は、検索にアスタリスクワイルドカードを使用します。
 
-ワイルドカード検索 `payload=org.glassfish.grizzly*` の結果の例:
+ワイルドカード検索 ​`payload=org.glassfish.grizzly*`​ の結果の例:
 
 image::log-search-wildcard.png[ワイルドカードを使用したログ検索]
 
 === 検索条件の追加
 事前定義された項目、演算子、および値を使用してログを検索するための検索条件を作成できます。  
 
-. *[+Add a filter (+検索条件を追加)]* をクリックします。 
+. ​*[+Add a filter (+検索条件を追加)]*​ をクリックします。 
 . ドロップダウンリストから事前定義された項目を選択します。 +
-  * `application`
-  * `class`
-  * `environment`
-  * `environment type`
-  * `log level` 
-  * `logger`
-  * `message`
-  * `thread`
-  * `timestamp`
-  * `worker`
+  * ​`application`​
+  * ​`class`​
+  * ​`environment`​
+  * ​`environment type`​
+  * ​`log level`​ 
+  * ​`logger`​
+  * ​`message`​
+  * ​`thread`​
+  * ​`timestamp`​
+  * ​`worker`​
 . ドロップダウンリストから演算子を選択します。 +
 使用可能な演算子は、選択した項目に応じて変化します。 +
-演算子を選択すると、値が必須の場合は、*[Value (値)]* ボックスが右側に表示されます。 
+演算子を選択すると、値が必須の場合は、​*[Value (値)]*​ ボックスが右側に表示されます。 
 . 該当する場合は、値を入力します。 +
 次の画像は、検索条件を使用して、タイムスタンプが指定された日付の範囲内であるログをすべて検索する例を示します。
 +
 image::log-filter-timestamp.png[検索条件クエリの使用]
 +
-「<<filters_predefined>>」および「<<operators>>」を参照してください。
+「​<<filters_predefined>>​」と「​<<operators>>​」を参照してください。
 +
-. (省略可能) *[Label (表示ラベル)]* に値を入力します。
-. *[Save (保存)]* をクリックします。 +
-*[+Add a filter (+検索条件を追加)]* の右に検索条件が表示されます。 
+. (省略可能) ​*[Label (表示ラベル)]*​ に値を入力します。
+. ​*[Save (保存)]*​ をクリックします。 +
+​*[+Add a filter (+検索条件を追加)]*​ の右に検索条件が表示されます。 
 
 === 検索クエリ
 
 検索クエリをクエリ DSL に変換する手順は、次のとおりです。 
 
-. *[+Add a filter (+検索条件を追加)]* をクリックします。
-. *[Edit Query DSL (クエリ DSL を編集)]* をクリックします。 +
-. クエリを入力し、*[Save (保存)]* をクリックします。 +
+. ​*[+Add a filter (+検索条件を追加)]*​ をクリックします。
+. ​*[Edit Query DSL (クエリ DSL を編集)]*​ をクリックします。 +
+. クエリを入力し、​*[Save (保存)]*​ をクリックします。 +
 次の例は、「INFO」という log-level を検索するクエリを示します。
 +
 [source,text,linenums]
@@ -180,7 +180,7 @@ worker            0
 
 特定の問題に関するログが見つかったら、(簡易検索条件、検索項目、検索条件タグのない) 専用ページで完全なログを表示できます。ログは表形式または JSON 形式で表示できます。
 
-. 選択したログから、*[View This Log (このログを表示)]* をクリックします。
+. 選択したログから、​*[View This Log (このログを表示)]*​ をクリックします。
 +
 image::logs-view-surrounding.png[View This Log (このログを表示)]
 +
@@ -192,7 +192,7 @@ image::logs-view-extended.png[展開されたログを表示]
 
 特定の問題に関するログを見つけた後、その前後にある他のログレポートを調べることがあります。
 
-. 選択したログから、*[View Surrounding Logs (前後のログを表示)]* をクリックします。
+. 選択したログから、​*[View Surrounding Logs (前後のログを表示)]*​ をクリックします。
 +
 image::logs-view-surrounding.png[[View Surrounding Logs (前後のログを表示)] タブ]
 +
@@ -202,8 +202,8 @@ image::logs-set-surrounding.png[前後のログの表示]
 
 デフォルト設定は次のとおりです。
 
-* *Load 5 more* newer logs (以降のログをさらに 5 件読み込む)
-* *Load 5 more* older logs (以前のログをさらに 5 件読み込む)
+* ​*Load 5 more*​ newer logs (以降のログをさらに 5 件読み込む)
+* ​*Load 5 more*​ older logs (以前のログをさらに 5 件読み込む)
 
 == 事前定義された検索条件の使用
 
@@ -213,19 +213,19 @@ image::logs-set-surrounding.png[前後のログの表示]
 image::log-filter-select.png[事前定義されたログ検索条件]
 
 [Quick Filter (簡易検索条件)] リストから事前定義された検索条件を選択すると、
-ページ最上部近くの *[Add a Filter (検索条件を追加)]* の横に表示されます。
+ページ最上部近くの ​*[Add a Filter (検索条件を追加)]*​ の横に表示されます。
 
 image::log-filter-actions.png[検索条件のアクション]
 
 検索条件にカーソルを置くと、次のアクションを選択できます。
 
 //TODO: ADD DESCRIPTIONS
-* *Enable/Disable (有効化/無効化)* - 検索条件を有効化または無効化します。無効化された検索条件はグレー表示されます。 
-* *Pin/Unpin (固定/固定解除)* - 検索条件を固定または固定解除します。
-* *Invert (反転)* - 検索条件の操作を変更します。たとえば、検索が `log level IS ERROR` の場合、
-反転後は `log level IS NOT ERROR` になります。
-* *Remove (削除)* - 検索条件を削除します。
-* *Edit (編集)* - 検索条件設定を変更します。
+* ​*Enable/Disable (有効化/無効化)*​ - 検索条件を有効化または無効化します。無効化された検索条件はグレー表示されます。 
+* ​*Pin/Unpin (固定/固定解除)*​ - 検索条件を固定または固定解除します。
+* ​*Invert (反転)*​ - 検索条件の操作を変更します。たとえば、検索が ​`log level IS ERROR`​ の場合、
+反転後は ​`log level IS NOT ERROR`​ になります。
+* ​*Remove (削除)*​ - 検索条件を削除します。
+* ​*Edit (編集)*​ - 検索条件設定を変更します。
 
 
 === ログへの検索条件列の追加
@@ -236,7 +236,7 @@ image::log-filter-actions.png[検索条件のアクション]
 
 image::log-filter-add-field.png[検索条件列をログに追加する方法]
 
-ログに次のような [`log-level` (ログレベル)] 列が作成されます。
+ログに次のような [​`log-level`​ (ログレベル)] 列が作成されます。
 
 image::log-filter-column.png[ログの検索条件列]
 
@@ -245,7 +245,7 @@ image::log-filter-column.png[ログの検索条件列]
 
 image::log-filter-remove-field.png[ログから検索条件列を削除する方法]
 
-列にカーソルを置いたときに表示される <<column_move,[X] アイコン>>を使用して削除することもできます。
+列にカーソルを置いたときに表示される ​<<column_move​,​[X] アイコン>>​を使用して削除することもできます。
 
 [[column_move]]
 == 検索条件列の移動
@@ -263,68 +263,68 @@ image::log-filter-column-move.png[ログから検索条件列を削除する方�
 |===
 | 検索条件 | 説明 | 例
 
-|  `application`
+|  ​`application`​
 | CloudHub の Mule アプリケーションのフルドメイン。
-| `am-flights.us-e2.stgx.cloudhub.io`
+| ​`am-flights.us-e2.stgx.cloudhub.io`​
 
-|  `class`
+|  ​`class`​
 | ログを生成する Java クラス。
-| `[am-flights].am-flights-api-httpListenerConfig.worker.34`
+| ​`[am-flights].am-flights-api-httpListenerConfig.worker.34`​
 
-|  `environment`
+|  ​`environment`​
 | CloudHub 環境名。
-| `myEnv`
+| ​`myEnv`​
 
-|  `environment type`
+|  ​`environment type`​
 | CloudHub 環境種別
-| `Sandbox`、`Design`、`Production`
+| ​`Sandbox`​、​`Design`​、​`Production`​
 
-|  `host`
+|  ​`host`​
 | ホスト IP。
-| `ip-172-25-175-175`
+| ​`ip-172-25-175-175`​
 
-|  `log level`
+|  ​`log level`​
 | ALL、DEBUG、ERROR、FATAL、INFO、OFF、TRACE、WARN
-| `INFO`
+| ​`INFO`​
 
-| `logger`
+| ​`logger`​
 | Log4J ロガークラス
-| `HttpListenerRegistry`
+| ​`HttpListenerRegistry`​
 
-|  `message`
+|  ​`message`​
 | Log4J メッセージ
-| `No listener found for request: (POST)/zaraza`
+| ​`No listener found for request: (POST)/zaraza`​
 
-| `timestamp`
-| ログのタイムスタンプ。有効な形式: `MMM dd yyyy, HH:mm:ss.SSS`
+| ​`timestamp`​
+| ログのタイムスタンプ。有効な形式: ​`MMM dd yyyy, HH:mm:ss.SSS`​
 a|
-サポートされる時間設定は、`s` (秒)、`m` (分)、`h` (時間)、
-`d` (日)、`w` (週)、`M` (月)、`y` (年)。`now` は相対時刻で
+サポートされる時間設定は、​`s`​ (秒)、​`m`​ (分)、​`h`​ (時間)、
+​`d`​ (日)、​`w`​ (週)、​`M`​ (月)、​`y`​ (年)。​`now`​ は相対時刻で
 次のように使用します。
 
-* 過去 5 分間:	`now-5m`
-* 本日現在まで:	`now/d`
-* 今週:	`now/w`
-* 今週初から現在まで: `now/w`
-* 前月: `now-1M/M`
+* 過去 5 分間:	​`now-5m`​
+* 本日現在まで:	​`now/d`​
+* 今週:	​`now/w`​
+* 今週初から現在まで: ​`now/w`​
+* 前月: ​`now-1M/M`​
 
-| `worker`
+| ​`worker`​
 | CloudHub ワーカー ID。
-| `0`、`1`
+| ​`0`​、​`1`​
 |===
 
 [[operators]]
 === 演算子
 
-検索条件の作成時には次の演算子を使用できます。例: `log-level IS`
+検索条件の作成時には次の演算子を使用できます。例: ​`log-level IS`​
 
 |===
-| `is` | すべての検索条件に使用できます。
-| `is not` | すべての検索条件に使用できます。
-| `is between` | `timestamp` に使用できます。
-| `is not between` | `timestamp` に使用できます。
-| `exists` | すべての検索条件に使用できます。
-| `does not exist` | すべての検索条件に使用できます。
+| ​`is`​ | すべての検索条件に使用できます。
+| ​`is not`​ | すべての検索条件に使用できます。
+| ​`is between`​ | ​`timestamp`​ に使用できます。
+| ​`is not between`​ | ​`timestamp`​ に使用できます。
+| ​`exists`​ | すべての検索条件に使用できます。
+| ​`does not exist`​ | すべての検索条件に使用できます。
 |===
 
 ////
@@ -351,7 +351,7 @@ image::log-filter-create-funnel.png[ログメッセージ検索条件の作成]
 
 image::log-filter-tag.png[ログメッセージ検索条件タグ]
 
-その検索条件は他の検索条件と同様に編集や使用ができます。<<filters_predefined>>を参照してください。
+その検索条件は他の検索条件と同様に編集や使用ができます。「​<<filters_predefined>>​」を参照してください。
 
 == ログの共有
 
@@ -361,20 +361,20 @@ image::log-filter-tag.png[ログメッセージ検索条件タグ]
 +
 image::logs-sharing.png[ログの共有]
 +
-. *[Share (共有)]* を選択してログページの URL を *[Share Logs Search Link (ログ検索リンクを共有)]* 項目に読み込みます。
+. ​*[Share (共有)]*​ を選択してログページの URL を ​*[Share Logs Search Link (ログ検索リンクを共有)]*​ 項目に読み込みます。
 +
 image::logs-sharing-url.png[ログリンクを共有]
 +
-. *[Copy (コピー)]* をクリックします。
+. ​*[Copy (コピー)]*​ をクリックします。
 
 [[save_view_log_searches]]
 == ログ検索の保存と保存したログ検索の表示
 
 ログ検索を保存して表示します。
 
-. *[Save Search (検索を保存)]* をクリックします。
-. *[View saved searches (保存した検索を表示)]* を選択します。
-. *[View Saved Searches (保存した検索を表示)]* を再度クリックして、メインのログページに戻ります。
+. ​*[Save Search (検索を保存)]*​ をクリックします。
+. ​*[View saved searches (保存した検索を表示)]*​ を選択します。
+. ​*[View Saved Searches (保存した検索を表示)]*​ を再度クリックして、メインのログページに戻ります。
 
 image::logs-search-save-menu.png[ログ検索の保存メニュー]
 
@@ -383,15 +383,15 @@ image::logs-search-save-view.png[保存したログ検索を表示]
 
 == 検索のクリア
 
-<<save_view_log_searches>> と同じメニューから現在の検索をクリアできます。
+「​<<save_view_log_searches>>​」と同じメニューから現在の検索をクリアできます。
 
-. *[Save Search (検索を保存)]* をクリックします。
-. *[Clear Current Search (現在の検索をクリア)]* を選択します。
+. ​*[Save Search (検索を保存)]*​ をクリックします。
+. ​*[Clear Current Search (現在の検索をクリア)]*​ を選択します。
 
 
 === 関連情報
 
-xref:log-search-query-syntax.adoc[検索クエリ構文]
+​xref:log-search-query-syntax.adoc[検索クエリ構文]​
 
 ////
 TODO: CUSTOM: need screenshot and functionality in place

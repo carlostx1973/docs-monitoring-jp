@@ -5,13 +5,13 @@ endif::[]
 
 *https://www.mulesoft.com/anypoint-pricing[Titanium サブスクリプションが必要]*
 
-xref:runtime-manager::logs.adoc[Runtime Manager] を使用したログの記録に加え、Anypoint Monitoring を使用してログファイルを集約し、ログの管理、検索、絞り込み、分析を行うことができます。これらの機能では次の操作がサポートされます。
+​xref:runtime-manager::logs.adoc[Runtime Manager]​ を使用したログの記録に加え、Anypoint Monitoring を使用してログファイルを集約し、ログの管理、検索、絞り込み、分析を行うことができます。これらの機能では次の操作がサポートされます。
 
 * 選択された Mule アプリケーションと環境の検索に基づいてイベントおよび情報パターンの比較分析と識別を行う。
 * Mule アプリケーションの特定のワーカー (またはワーカーのセット) のログ内を検索して確認する問題の範囲を狭める。
 * 重要なログのスナップショットを問題の原因に取り組む開発者と共有する。
 
-xref:logs-using.adoc[「ログの使用」]を参照してください。
+​xref:logs-using.adoc[「ログの使用」]​を参照してください。
 
 ////
 TODO _FUTURE?

@@ -2,14 +2,14 @@
 
 API Analytics ダッシュボードでは、API 使用状況を監視するチャートが提供され、API の使用状況とパフォーマンスに関するインサイトを得ることができます。
 
-Anypoint Monitoring から、API 監視ダッシュボードにアクセスして、API に関する次のような情報を表示できます。
-
+[NOTE]
+Anypoint Monitoring の Gold および Platinum サブスクリプションの場合、API Analytics データが 90 日間保持されます。
 
 == API Analytics ダッシュボードを表示する
 
-. Anypoint Platform にサインインし、*[Anypoint Monitoring]* に移動します。
+. Anypoint Platform にサインインし、​*[Anypoint Monitoring]*​ に移動します。
 . 表示する API の [Environment (環境)]、[Resource name (リソース名)]、[Version/Instance (バージョン/インスタンス)] を選択します。
-. *[View (表示)]* をクリックします。 +
+. ​*[View (表示)]*​ をクリックします。 +
 API Analytics ページが表示され、実行中の管理 API に関する次のような情報を参照できます。 +
 * Requests by instance (インスタンス別要求数)
 * Requests by HTTP response code (HTTP 応答コード別要求数)
@@ -22,12 +22,12 @@ image::monitoring-api-analytics-top.png[]
 +
 image::monitoring-api-analytics-bottom.png[]
 +
-. 統計情報を表示する日時範囲を選択し、*[Confirm (確認)]* をクリックします。 +
+. 統計情報を表示する日時範囲を選択し、​*[Confirm (確認)]*​ をクリックします。 +
 ページ上部の詳細パネルに、API に関する情報が表示されます。
 +
 image::api-analytics-detail-panel.png[]
 +
-*[View API in API Manager (API Manager で API を表示)]* リンクをクリックして、API Manager で API Analytics を表示できます。
+​*[View API in API Manager (API Manager で API を表示)]*​ リンクをクリックして、API Manager で API Analytics を表示できます。
 
 === Requests by Instance (インスタンス別要求数)
 

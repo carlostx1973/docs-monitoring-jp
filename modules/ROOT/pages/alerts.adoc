@@ -14,8 +14,8 @@ endif::[]
 image::alert-in-graph.png[alt]
 
 ベルアイコンにカーソルを置くと説明が表示されます。この場合は、
-*[Status OK (状況 OK)]* です。各アラート状況についての詳細は、
-xref:alerts-using.adoc#alert_status[「アラート状況によるアラートの絞り込み」]を
+​*[Status OK (状況 OK)]*​ です。各アラート状況についての詳細は、
+​xref:alerts-using.adoc#alert_status[「アラート状況によるアラートの絞り込み」]​を
 参照してください。
 
 //When the data exceed a configured threshold on your resources over a period of time, you can also receive notification to take action.
@@ -32,4 +32,4 @@ Alerting features in Anypoint Monitoring include:
 * Alert History: An Alert History page shows status changes of a single alert. When you are troubleshooting an issue, you can have a view of istoric data and see if the current issue has any  precedent.
 ////
 
-xref:alerts-config.adoc[「アラートの設定」]を参照してください。
+​xref:alerts-config.adoc[「アラートの設定」]​を参照してください。

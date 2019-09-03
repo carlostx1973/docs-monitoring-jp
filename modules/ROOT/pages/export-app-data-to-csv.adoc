@@ -8,28 +8,28 @@ endif::[]
 [NOTE]
 この機能には、Titanium サブスクリプションが必要です。
 
-. Anypoint Platform にサインインし、*[Monitoring (監視)]* をクリックします。
-. *[Anypoint Monitoring]* の左のサイドバーで *[Built-in dashboards (組み込みダッシュボード)]* または *[Custom dashboards (カスタムダッシュボード)]* をクリックします。 
+. Anypoint Platform にサインインし、​*[Monitoring (監視)]*​ をクリックします。
+. ​*[Anypoint Monitoring]*​ の左のサイドバーで ​*[Built-in dashboards (組み込みダッシュボード)]*​ または ​*[Custom dashboards (カスタムダッシュボード)]*​ をクリックします。 
 . データをダウンロードするアプリケーションを選択します。 
 . ダウンロードするデータの時間範囲を指定します。 
-. ダウンロードするデータが含まれるチャートで、チャートの右上にある 3 つの縦ドットをクリックし、*[Export CSV (CSV をエクスポート)]* を選択します。 
+. ダウンロードするデータが含まれるチャートで、チャートの右上にある 3 つの縦ドットをクリックし、​*[Export CSV (CSV をエクスポート)]*​ を選択します。 
 +
 image::export-csv.png[]
 +
-. *[Export CSV (CSV をエクスポート)]* ダイアログで、データの形式設定方法を指定します。 +
-* *[Mode (モード)]* で、データの形式を選択します。
- ** *[Series as rows (系列を行にする)]* を選択するとデータが CSV ファイルの行として形式設定されます。 +
+. ​*[Export CSV (CSV をエクスポート)]*​ ダイアログで、データの形式設定方法を指定します。 +
+* ​*[Mode (モード)]*​ で、データの形式を選択します。
+ ** ​*[Series as rows (系列を行にする)]*​ を選択するとデータが CSV ファイルの行として形式設定されます。 +
 例: 
 +
 image::csv-export-rows.png[]
 +
- ** *[Series as columns (系列を列にする)]* を選択するとデータが CSV ファイルの列として形式設定されます。 +
+ ** ​*[Series as columns (系列を列にする)]*​ を選択するとデータが CSV ファイルの列として形式設定されます。 +
 例: 
 +
 image::export-csv-columns.png[]
 +
-* *[Date Time Format (日時形式)]* で、値を入力して日付形式を次のように指定します。 +
-`YYYY-MM-DDTHH:mm:ssZ`
+* ​*[Date Time Format (日時形式)]*​ で、値を入力して日付形式を次のように指定します。 +
+​`YYYY-MM-DDTHH:mm:ssZ`​
 +
-. *[Export (エクスポート)]* をクリックします。 +
+. ​*[Export (エクスポート)]*​ をクリックします。 +
 CSV ファイルがブラウザで自動的にダウンロードされます。

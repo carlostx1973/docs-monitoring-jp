@@ -5,20 +5,11 @@ endif::[]
 
 サービスの信頼性と安定性を確保するには、インフラストラクチャとシステムの状態を把握することが重要です。Anypoint Platform の一部である Anypoint Monitoring は、アプリケーションネットワーク全体のインテグレーションを可視化します。監視ツールはアプリケーションネットワークの Mule フローとコンポーネントからのフィードバックを提供します。
 
-// TODO: REMOVED ALL REFS TO APIS
-//It uses data access capabilities, context, and data in the APIs and Integrations platform to provide best-in-the-industry Monitoring and Diagnostics.
-
 運用チームと開発チームは監視ツールを使用して問題を診断し、デジタルパフォーマンスに悪影響を与える動作への解決策を決定できます。監視ツールは、集約されたメトリクス、データ視覚化ツール、問題のアラート、ログ集約システムを通じてこうした問題の特定と解決にかかる時間を短縮できるように設計されています。具体的には、Anypoint Monitoring では次のようなことができます。
 
 * 連動するシステムのメトリクスをリアルタイムに集約してマップする。
 * 平均問題特定時間 (MTTI) を短縮できるようにダッシュボードとアラートを設定する。
 * 大規模にログデータを保存および検索する。
-
-//TODO: PERFORMANCE?
-//What is the performance overhead?3-5% maximum CPU utilization impact.  1% in current testing (internal onlyfor this number).
-
-// TODO: Free and Premium features
-// Integrations with Splunk/ELK and monitoring tools such as Nagio, and MS Ops
 
 == ダッシュボード
 
@@ -26,30 +17,23 @@ endif::[]
 
 image::intro-dashboard-built-in.png[組み込みダッシュボードの例]
 
-//image::metrics-infographic.png[Dashboards]
-
 組み込みダッシュボードとカスタムダッシュボードには、アプリケーションネットワークに関するメトリクスが表示されます。リソースが視覚的に表現されるので、異常の検出、問題のトラブルシューティング、未加工の形式ではわかりづらいトレンドの把握が可能です。
-
-//the different topologies of your systems.
 
 カスタムダッシュボードは、組織にとって重要な特定のメトリクスとデータポイントを 1 画面にまとめて提供します。カスタムダッシュボードにはグラフやその他のチャート (Singlestat など) を表示できます。
 
-//The example includes system data separated by failed and successful requests. You can build unified dashboards across ajjjjn unlimited number of components, fully customizing charts and graphs, exporting data into a selected format and tools.
-
 アプリケーションやあらゆるシステムのダッシュボードの複数のサービスを参照するカスタムダッシュボードから、多くのデータポイントやメトリクスを追跡できます。
 
-xref:dashboards-using.adoc[ダッシュボード]の詳細を参照してください。
+​xref:dashboards-using.adoc[ダッシュボード]​の詳細を参照してください。
 
 == イベント駆動アラート
 
 トレンドを追跡し、独自のアラートを追加して、アプリケーションネットワークの異常な動作や問題を特定します。
 
 image::intro-alerts.png[アラート]
-//image::alert-infographic.png[Alerts]
 
 リソースに関するルール (またはしきい値) やポリシーに基づいてアラートをトリガできます。一定期間内にこれらのしきい値を超えると、通知が送信されてアクションを実行することができます。通知方法は、定義したアラートの重要度によって異なります。
 
-xref:alerts.adoc[アラート]の詳細を参照してください。
+​xref:alerts.adoc[アラート]​の詳細を参照してください。
 
 == ログシステム
 
@@ -61,7 +45,7 @@ Anypoint Monitoring では、アプリケーションネットワーク全体か
 
 ログアグリゲータシステムは、未加工の操作データを保持し、オペレーティングシステムまたは Mule アプリケーションで発生したイベントを記録します。ログ集約によってログファイルをまとめ、整理し、インデックスを付けて、管理、検索、分析をしやすくします。集約されたログは、操作上の問題の原因特定と障害の調査を促進し、監視システムを補完します。
 
-xref:logs.adoc[ログ]の詳細を参照してください。
+​xref:logs.adoc[ログ]​の詳細を参照してください。
 
 [data_storage_retention]
 == データの保存と保持
@@ -88,28 +72,26 @@ Titanium サブスクリプションでは次のことが可能です。
 ** EU (ロンドン)
 ** EU (パリ)
 
-サブスクリプションについての詳細は、カスタマーサポート担当者にお問い合わせください。  https://www.mulesoft.com/anypoint-pricing[「Anypoint Platform pricing」] (Anypoint Platform 価格設定) も参照してください。
-
-// TODO: GovCloud support is coming as part of FedRAMP in 2019
+サブスクリプションについての詳細は、カスタマーサポート担当者にお問い合わせください。&#8203;https://www.mulesoft.com/anypoint-pricing[「Anypoint Platform pricing (Anypoint Platform 価格設定)」] も参照してください。
 
 == 未加工データのダウンロード
 
 保管されているログデータを Mule アプリケーションにダウンロードして、セキュリティやコンプライアンスなどログで明らかにできる問題の調査に役立てることができます。
 
-xref:raw-data.adoc[未加工データ]の詳細を参照してください。
+​xref:raw-data.adoc[未加工データ]​の詳細を参照してください。
 
 == 監視インテグレーションツール
 
-さまざまなコネクタにリンクして、Anypoint Monitoring 通知を外部システムに配信することができます。
+Custom Metrics コネクタを含む、さまざまなコネクタにリンクして、Anypoint Monitoring 通知を外部システムに配信することができます。 
 
-xref:tools.adoc[ツール]の詳細を参照してください。
+​xref:tools.adoc[ツール]​の詳細を参照してください。
 
 == API 機能監視
 
 予定した間隔で API とエンドポイントを監視します。テストの合否に関するレポートを受信し、API およびエンドポイントのパフォーマンスに関する統計を表示できます。
 
-xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[「API Functional Monitoring in Anypoint Monitoring」](Anypoint Monitoring の API 機能監視) を参照してください。
+​xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[「API Functional Monitoring in Anypoint Monitoring (Anypoint Monitoring の API 機能監視)」]​ を参照してください。
 
 == 関連情報
 
-* xref:api-functional-monitoring::afm-create-monitor.adoc[Create a Monitor (監視の作成)]
+* xref:api-functional-monitoring::afm-create-monitor.adoc[監視の作成]

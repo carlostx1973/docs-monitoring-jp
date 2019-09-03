@@ -3,21 +3,21 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Anypoint Monitoring は、<<runtime_versions>>で実行されている Mule アプリケーションに関するデータを提供します。Anypoint Platform の Management Center の一部であり、使用するには<<required_permission>>が必要です。
+Anypoint Monitoring は、CloudHub またはオンプレミスサーバで実行されている Mule アプリケーションに関するデータを提供します。Anypoint Platform の Management Center の一部であり、使用するには​<<required_permission>>​が必要です。
 
 [NOTE]
-機能監視については、xref:api-functional-monitoring::index.adoc[API 機能監視]を参照してください。
+機能監視については、​xref:api-functional-monitoring::index.adoc[API 機能監視]​を参照してください。
 
 [[using_monitoring]]
 == Anypoint Monitoring の使用
 
-. Anypoint Platform (https://anypoint.mulesoft.com[https://anypoint.mulesoft.com]) にログインします。
+. Anypoint Platform (https://anypoint.mulesoft.com[https://anypoint.mulesoft.com]​) にログインします。
 +
-. 左側のナビゲーションメニューの *[Management Center]* の下で、*[Anypoint Monitoring]* を選択します。
+. 左側のナビゲーションメニューの ​*[Management Center]*​ の下で、​*[Anypoint Monitoring]*​ を選択します。
 +
 image::management-center-menu.png[Management Center メニュー]
 +
-[Anypoint Monitoring] が表示されないか、使用できない場合、権限の問題である可能性があります。<<required_permission>>を参照してください。
+[Anypoint Monitoring] が表示されないか、使用できない場合、権限の問題である可能性があります。「​<<required_permission>>​」を参照してください。
 +
 . [Anypoint Monitoring] から、監視ツールを見つけて使用できます。
 +
@@ -39,24 +39,21 @@ Anypoint Monitoring を使用するには、次の権限が必要です。
 
 * Anypoint Monitoring ユーザ
 
-通常、システム管理者が [Access Management (アクセス管理)] で権限を設定します。xref:access-management::users.adoc#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」](ユーザへの権限とロールの付与) を参照してください。
+通常、システム管理者が [Access Management (アクセス管理)] で権限を設定します。​xref:access-management::users.adoc#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」]​ (ユーザへの権限とロールの付与) を参照してください。
 
 [[runtime_versions]]
 == CloudHub での Anypoint Monitoring の有効化
 
-Anypoint Monitoring が Mule アプリケーションの監視を開始できるようにするには、適切なバージョンの Mule runtime engine にデプロイする必要があります。  xref:configure-monitoring-cloudhub.adoc[「Mule アプリケーションの Anypoint Monitoring の設定 (CloudHub)」]を参照してください。 
+Anypoint Monitoring が Mule アプリケーションの監視を開始できるようにするには、適切なバージョンの Mule runtime engine にデプロイする必要があります。  ​xref:configure-monitoring-cloudhub.adoc[「Mule アプリケーションの Anypoint Monitoring の設定 (CloudHub)」]​を参照してください。 
 
 == オンプレミスでの Anypoint Monitoring の有効化
 
-オンプレミスサーバに xref:am-installing.adoc[Anypoint Monitoring をインストール]し、そのサーバ上で実行されていて、CloudHub で管理されているアプリケーション (ハイブリッドアプリケーション) を監視できます。
+オンプレミスサーバに ​xref:am-installing.adoc[Anypoint Monitoring をインストール]​し、そのサーバ上で実行されていて、CloudHub で管理されているアプリケーション (ハイブリッドアプリケーション) を監視できます。
 
 == 関連情報
 
 * xref:monitoring-settings-page.adoc[Anypoint Monitoring 設定]
 * xref:configure-monitoring-cloudhub.adoc[Mule アプリケーションの Anypoint Monitoring の設定]
 * xref:am-installing.adoc[Anypoint Monitoring のオンプレミスインストール]
-* xref:enable-apps-deployed-to-cloud.adoc[CloudHub にデプロイされた Mule アプリケーションの有効化]
 * xref:api-functional-monitoring::afm-create-monitor.adoc[Create a Monitor (監視の作成)]
 
-//REMOVED PER PABLO GALIANO & SEBASTIAN:
-//For Mule apps running on older versions of the runtime, Anypoint Monitoring will provide information from Runtime Manager, API Manager, and API Analytics.

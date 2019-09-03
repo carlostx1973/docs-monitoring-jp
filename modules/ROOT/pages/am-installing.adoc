@@ -1,12 +1,15 @@
-= Anypoint Monitoring のオンプレミスインストール
+= ハイブリッドランタイムの監視
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
-Anypoint Monitoring をオンプレミスサーバにインストールし、そのサーバ上で実行されるアプリケーションを監視できます。 
+オンプレミスサーバに Anypoint Monitoring エージェントをインストールし、そのサーバ上で実行されていて、CloudHub で管理されているアプリケーションを監視できます。 
 
-Anypoint Monitoring をサービスとしてインストールするかどうかをインストールスクリプトが尋ねます。インストーラによってサービスとしてプリセットしない場合は、[`no` (いいえ)] を選択します。インストールスクリプトをコールするときに `-x` 引数を指定してこの確認を省略することもできます。この確認を省略すると、Anypoint Monitoring はサービスとしてインストールされません。 
+Anypoint Monitoring エージェントは、監視データを Anypoint Monitoring クラウドエンドポイントに送信します。Anypoint Monitoring データの送信には、高効率の双方向バイナリチャネル経由でログデータを転送するためのオープンソースプロトコルが使用されます。データは相互 TLS 暗号化を使用してセキュアに送信されます。 
 
 == 開始する前に
 
-アウトバウンドファイアウォールがある場合は、ポート 443 と 5044 を開きます。Anypoint Monitoring エージェントは、監視データを Anypoint Monitoring クラウドエンドポイントに送信します。Anypoint Monitoring データの送信には、高効率の双方向バイナリチャネル経由でログデータを転送するためのオープンソースプロトコルが使用されます。データは相互 TLS 暗号化を使用してセキュアに送信されます。 
+アウトバウンドファイアウォールがある場合は、ポート 443 と 5044 を開きます。 
 
 次のエンドポイントへの送信接続が行われます。
 
@@ -14,10 +17,8 @@ Anypoint Monitoring をサービスとしてインストールするかどうか
 ** arm-auth-proxy.prod.cloudhub.io:443
 ** dias-ingestor-nginx.prod.cloudhub.io:5044
 * EU コントロールプレーン
-** arm-auth-proxy.prod-eu.msap:443
+** arm-auth-proxy.prod-eu.msap.io:443
 ** dias-ingestor-nginx.prod-eu.msap.io:5044
-
-ハイブリットデプロイメント用のオンプレミス監視がマスタ組織レベルで有効化されていることを確認します。不明な場合は、アカウント担当者にお問い合わせください。
 
 == サポートされているオペレーティングシステム
 
@@ -25,71 +26,98 @@ Anypoint Monitoring が、次のいずれかのオペレーティングシステ
 
 * CentOS 7
 * RedHat Enterprise Linux 7.0 および 7.6
-* Ubuntu 14.04 および 15.04
-* Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016、Windows Server 2019
+* Ubuntu 16.04
+* Windows Server 2012、Windows Server 2012 R2、Windows Server 2016、Windows Server 2019
 
 == Mule Runtime Engine のサポート対象バージョン
 
-次のいずれかの Mule Runtime Engine バージョンがサーバ上で実行されていることを確認します。
+Mule のサポート対象バージョンがサーバで実行されている必要があります。次の Mule バージョンがサポートされています。 
 
-* 4.1.5
-* 4.1.4
-* 4.1.3
-* 4.1.2
-* 4.1.1
-* 3.9.2
-* 3.9.1
-* 3.9.0
+* 4.x.x
+* 3.9.x
 * 3.8.7
 
 == Mule Runtime Manager エージェントのサポート対象バージョン
 
 次のいずれかの Mule Runtime Manager エージェントバージョンが、サーバ上で実行されている Mule runtime engine にインストールされていることを確認します。
 
-* Runtime Manager エージェント 2.1.9
-* Runtime Manager エージェント 2.1.7
-* Runtime Manager エージェント 2.1.6
-* Runtime Manager エージェント 1.11.3
-* Runtime Manager エージェント 1.11.2
-* Runtime Manager エージェント 1.11.1
-* Runtime Manager エージェント 1.11.0
-* Runtime Manager エージェント 1.10.0
+* 2.3.0
+* 2.2.1
+* 2.2.0
+* 2.1.9
+* 2.1.7
+* 2.1.6
+* 1.11.3
+* 1.11.2
+* 1.11.1
+* 1.11.0
+* 1.10.0
 
 == ハードウェア前提条件
 
-サーバが Anypoint Monitoring の最小ハードウェア要件を満たしていることを確認します。
+サーバが Anypoint Monitoring の次の最小ハードウェア要件を満たしていることを確認します。
 
 * 2GHz CPU または 1 仮想 CPU
 * 1GB RAM
 * 4GB ディスク領域
+* Intel x86 または x64 互換の CPU アーキテクチャ
 
 [[install_ap_monitoring_onprem]]
-== Anypoint Monitoring のインストール 
+== Anypoint Monitoring エージェントのインストール
 
-Anypoint Monitoring をダウンロードしてオンプレミスにインストールするための手順は、Anypoint Monitoring ユーザインターフェースの xref:monitoring-settings-page.adoc[*[Setting (設定)]* ページ] にあります。このページから Anypoint Monitoring インストール ZIP (`am.zip`) ファイルをダウンロードすることもできます。 
+Anypoint Monitoring エージェントをダウンロードしてオンプレミスにインストールするための手順は、Anypoint Monitoring ユーザインターフェースの ​xref:monitoring-settings-page.adoc[​*[Setting (設定)]*​ ページ]​にあります。​*[Settings (設定)]*​ ページから Anypoint Monitoring インストール ​`am.zip`​ ファイルをダウンロードすることもできます。 
+
+​`am.zip`​ ファイルを展開すると、ZIP を展開した場所に ​`am`​ というフォルダが作成されます。 
+
+Anypoint Monitoring をサービスとしてインストールするかどうかをインストールスクリプトが尋ねます。インストーラによってサービスとしてプリセットしない場合は、[​`no`​ (いいえ)] を選択します。 
+
+インストールスクリプトをコールするときに ​`-x`​ 引数を指定してこの確認を省略することもできます。この確認を省略すると、Anypoint Monitoring はサービスとしてインストールされません。 
 
 
-== Anypoint Monitoring の稼働確認
+== SOCKS5 プロキシ設定
+
+監視データがデータセンターから送信されるときにプロキシが必要な場合、Anypoint Monitoring エージェントのインストール時にコマンドラインパラメータ ​`-p`​ を使用できます。 
+
+監視に SOCKS5 プロトコルを使用するには、以下を実行する必要があります。
+
+. Runtime Manager と共にプロキシをセットアップします。​xref:runtime-manager::servers-create.adoc[「Runtime Manager でのサーバの作成」]​を参照してください。
+. SOCKS5 プロキシ設定手順を実行するには、環境に互換サーバがデプロイされている必要があります。
+. Anypoint Monitoring エージェントをインストールし、​`-p`​ オプションを使用します。たとえば、Windows サーバのコマンドラインで次のように入力します。 
+
+----
+<location-of-am-folder\bin>powershell -file install.ps1 -s <server-id> -p socks5://user:password@socks5-server:1080
+----
+
+Linux サーバの場合は、次のように入力します。
+
+----
+$ ./install -s <server-id> -p socks5://user:password@socks5-server:1080
+---- 
+
+
+== Anypoint Monitoring エージェントの稼働確認
 
 1. 設定が反映されるまで 10 分間待ちます。
 1. http://anypoint.mulesoft.com にアクセスしてサインインします。
-1. *[Anypoint Monitoring]* に移動します。
-1. *[Built-in Dashboards (組み込みダッシュボード)]* ページで、Anypoint Monitoring をインストールしたサーバ上にデプロイされているアプリケーションを選択します。
+1.​*[Monitoring (監視)]*​ に移動します。
+1.​*[Built-in Dashboards (組み込みダッシュボード)]*​ ページで、Anypoint Monitoring エージェントをインストールしたサーバ上にデプロイされているアプリケーションを選択します。
 1. [CPU Utilization (CPU 使用率)] チャートと [Memory Utilization (メモリ使用量)] チャートにデータが表示されていることを確認します。 +
-チャートにデータが表示される場合、Anypoint Monitoring はインストールされて稼働しています。 +
+チャートにデータが表示される場合、Anypoint Monitoring エージェントはインストールされて稼働しています。 +
 チャートにデータが表示されない場合、Anypoint Monitoring がエンドポイントに接続できることを確認します。 +
 [NOTE]
 必要に応じて、アウトバウンドファイアウォールルールにエンドポイントをホワイトリスト登録して、サーバで接続が許可されるようにします。エンドポイントがページのステップ 5 で OS の下の灰色のボックスに表示されます。
-11. Anypoint Monitoring が稼働しているサーバにログインします。
-11. データ転送エージェントのログファイルを開きます。ログファイルはパス `./am/log/filebeat` にあります。
+11. Anypoint Monitoring エージェントが稼働しているサーバにログインします。
+11. データ転送エージェントのログファイルを開きます。ログファイルはパス ​`./am/filebeat/logs`​ にあります。
 11. 接続の失敗または接続の再試行に関するエントリを探します。
 
-== 監視エージェントの更新
+== Anypoint Monitoring エージェントの更新
 
-. `am` フォルダで、次のコマンドを実行します。 +
-`./bin/uninstall script`
-. `am` フォルダを削除します。
-. オンプレミスに <<install_ap_monitoring_onprem,Anypoint Monitoring をインストール>>する手順を実行します。 
+今後、いずれかの時点で Anypoint Monitoring エージェントの更新が必要になった場合は、次の手順に従います。
+
+. ​`am`​ フォルダで、次のコマンドを実行します。 +
+​`./bin/uninstall script`​
+. ​`am`​ フォルダを削除します。
+. オンプレミスに ​<<install_ap_monitoring_onprem​,​Anypoint Monitoring エージェントをインストール>>​する手順を実行します。 
 
 == パフォーマンスへの影響
 
@@ -104,6 +132,6 @@ Anypoint Monitoring をダウンロードしてオンプレミスにインスト
 == 関連情報
 
 * xref:monitoring-settings-page.adoc[Anypoint Monitoring 設定]
-* xref:4.1@mule-runtime::runtime-installation-task.adoc[To Download and Install the Mule 4 (Mule 4 のダウンロードおよびインストール方法)]
+* xref:mule-runtime::runtime-installation-task.adoc[Mule 4 のダウンロードおよびインストール]
 * xref:runtime-manager::installing-and-configuring-runtime-manager-agent.adoc[Installing and Configuring Mule Runtime Manager Agent (Mule Runtime Manager エージェントのインストールと設定)]
 * xref:3.9@mule-runtime::installing.adoc[Installing and Deploying Mule Runtime 3.9 (Mule Runtime 3.9 のインストールとデプロイ)]

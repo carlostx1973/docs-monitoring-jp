@@ -1,0 +1,22 @@
+= Runtime Fabric でのアプリケーションの監視
+
+Runtime Fabric にデプロイされたアプリケーションの監視は、デフォルトで有効化されています。
+
+== サポート対象の Mule バージョン
+
+Anypoint Monitoring は、Runtime Fabric デプロイメントで次の Mule バージョンをサポートしています。
+
+* Mule Runtime 3.8.7-AM
+* Mule Runtime 3.9.1
+* Mule Runtime 3.9.2
+* Mule Runtime、バージョン 4.1.2+
+
+== Runtime Fabric のセットアップ
+
+​xref:1.3@runtime-fabric::install-create-rtf-arm.adoc[Runtime Fabric のセットアップ]​手順に従います。Runtime Fabric をインストールすると、実行中で Runtime Fabric にデプロイされているアプリケーションが [Monitoring (監視)] に表示されます。
+
+=== 関連情報
+
+​xref:1.3@runtime-fabric::manage-monitor-applications.adoc[Monitoring Applications Deployed to Runtime Fabric (Runtime Fabric にデプロイされたアプリケーションの監視)]​
+
+

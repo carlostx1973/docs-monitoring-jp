@@ -11,9 +11,9 @@ a|
 
 次のモードでテキストを記述できます。
 
-* HTML: HTML の例については、xref:dashboard-config-ref.adoc#samples_html[「HTML サポート」]を参照してください。
+* HTML: HTML の例については、​xref:dashboard-config-ref.adoc#samples_html[「HTML サポート」]​を参照してください。
 
-* Markdown (マークダウン): マークダウンの例については、xref:dashboard-config-ref.adoc#samples_markdown[「マークダウン構文のサポート」]を参照してください。 a|
+* Markdown (マークダウン): マークダウンの例については、​xref:dashboard-config-ref.adoc#samples_markdown[「マークダウン構文のサポート」]​を参照してください。 a|
 
 image::text-config-html.png[例: カスタムダッシュボードのテキストパネル]
 |===
@@ -25,11 +25,11 @@ image::text-config-html.png[例: カスタムダッシュボードのテキス�
 .マークダウンの例
 image::text-config.png[マークダウンの例]
 
-設定を完了したら、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[`X`] をクリックします。
+設定を完了したら、[Save Changes (変更を保存)] をクリックできます。設定を終了してダッシュボードに戻るには、[​`X`​] をクリックします。
 
 == HTML の例
 
-次の HTML の例では、xref:dashboard-custom-config.adoc#text_example[「テキストの例」]で表示する見出しを作成します。
+次の HTML の例では、​xref:dashboard-custom-config.adoc#text_example[「テキストの例」]​で表示する見出しを作成します。
 
 image::dashboard-text-config-html.png[HTML の例]
 

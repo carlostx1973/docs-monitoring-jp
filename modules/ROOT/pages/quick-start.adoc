@@ -39,7 +39,7 @@ Anypoint Monitoring を使用するには、次の権限が必要です。
 
 * Anypoint Monitoring ユーザ
 
-通常、システム管理者が [Access Management (アクセス管理)] で権限を設定します。​xref:access-management::users.adoc#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」]​ (ユーザへの権限とロールの付与) を参照してください。
+通常、システム管理者が [Access Management (アクセス管理)] で権限を設定します。xref:access-management::users.adoc#granting-permissions-and-roles-to-users[「Granting Permissions and Roles to Users」] (ユーザへの権限とロールの付与) を参照してください。
 
 [[runtime_versions]]
 == CloudHub での Anypoint Monitoring の有効化

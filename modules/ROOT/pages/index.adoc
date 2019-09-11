@@ -108,7 +108,7 @@ xref:tools.adoc[ツール]の詳細を参照してください。
 
 予定した間隔で API とエンドポイントを監視します。テストの合否に関するレポートを受信し、API およびエンドポイントのパフォーマンスに関する統計を表示できます。
 
-xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[「API Functional Monitoring in Anypoint Monitoring」](Anypoint Monitoring の API 機能監視) を参照してください。
+xref:api-functional-monitoring::afm-in-anypoint-platform.adoc[「API Functional Monitoring in Anypoint Monitoring」] (Anypoint Monitoring の API 機能監視) を参照してください。
 
 == 関連情報
 

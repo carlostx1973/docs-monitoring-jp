@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Anypoint Monitoring 通知を外部システムに配信しやすくするために、Anypoint Monitoring では AppExchange のコネクタへのリンクを提供し、Mule アプリケーションに追加できるようにしています。
+Anypoint Monitoring 通知を外部システムに配信しやすくするために、Anypoint Monitoring では Anypoint Exchange のコネクタへのリンクを提供し、Mule アプリケーションに追加できるようにしています。
 
 .Anypoint Monitoring で使用可能なツール
 image::tools.png[ツール]
